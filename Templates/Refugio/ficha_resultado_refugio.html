@@ -1,0 +1,43 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    Resultados de búsqueda de refugio -
+{% endblock %}
+
+{% block contenidoQueCambia%}
+
+<div style = "padding: 20px 40px;">
+    <h1>Resultados de búsqueda</h1>
+    <div style = "padding: 20px 80px;border-color: BLACK;border-width: 5px;border-style: solid;">
+
+<p>Estamos buscando el Refugio : {{nombre}} </p>
+
+    {% if fichas %}
+
+        <ul>
+
+            {%for ficha in fichas %}
+
+                <li> Nombre del Refugio: {{ficha.nombre}} </li>
+                <li> Telefono N°:{{ficha.telefono}} </li>
+                <li> E-mail: {{ficha.email}} </li>
+                <li> Direccion: {{ficha.direccion}} </li>
+                <br>
+                
+   
+            {% endfor %}
+
+        </ul>
+
+    {% else %}
+
+    <p>No se encontro la Ficha</p>
+
+{% endif %}
+    </div>
+
+</div>
+
+{% endblock %}

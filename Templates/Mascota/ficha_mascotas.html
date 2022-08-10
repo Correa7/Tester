@@ -1,0 +1,28 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    Ficha de mascotas -
+{% endblock %}
+
+{% block contenidoQueCambia%}
+<div style="padding: 20px 40px;">
+
+    <h1>Ficha de mascotas</h1>
+    <form action=" " method="POST"
+        style="padding: 20px 80px;border-color: BLACK;border-width: 5px;border-style: solid;">
+        {% csrf_token %}
+
+        <table>
+
+            {{ form_mascotas.as_table }}
+
+        </table>
+
+        <input type="submit" name="Enviar">
+
+
+    </form>
+</div>
+{% endblock %}

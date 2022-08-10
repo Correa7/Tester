@@ -1,0 +1,46 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    Resultados de búsqueda de mascotas -
+{% endblock %}
+
+{% block contenidoQueCambia%}
+
+<div style="padding: 20px 40px;">
+    <h1>Resultados de búsqueda</h1>
+    <div style="padding: 20px 80px;border-color: BLACK;border-width: 5px;border-style: solid;">
+
+        <p>Se muestran los resultados para : {{nickname}} </p>
+
+        {% if fichas %}
+
+        <ul>
+
+            {%for ficha in fichas %}
+
+            <li> N° de ficha: N° {{ficha.id}}</li> 
+            <li> Nombre: {{ficha.nickname}} </li>
+            <li> Especie: {{ficha.especie}} </li>
+            <li> Raza: {{ficha.raza}} </li>
+            <li> Sexo: {{ficha.sexo}} </li>
+            <li> Edad aproximada: {{ficha.edad_aprox}} </li>
+            <li> Fecha de ingreso: {{ficha.ingreso}} </li>
+            <li> Observaciones: {{ficha.observaciones}} </li>
+            <br>
+
+            {% endfor %}
+
+        </ul>
+
+        {% else %}
+
+        <p>No se encontro la Ficha</p>
+
+        {% endif %}
+    </div>
+
+</div>
+
+{% endblock %}

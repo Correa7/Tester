@@ -1,0 +1,43 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    Resultados de búsqueda de fichas veterinarias -
+{% endblock %}
+
+{% block contenidoQueCambia%}
+
+<div style = "padding: 20px 40px;">
+
+    <h1>Resultados de búsqueda</h1>
+    <div style = "padding: 20px 80px;border-color: BLACK;border-width: 5px;border-style: solid;">
+
+        <p>Estamos buscando la Ficha Veterinaria : {{registro}} </p>
+
+        {% if fichas %}
+
+        <ul>
+
+            {%for ficha in fichas %}
+
+                <li> Numero de registro: N°  {{ficha.registro}} </li>
+                <li> Vacunas :{{ficha.vacuna_1}} - {{ficha.vacuna_2}}</li>
+                <li> Desparasitado: {{ficha.desparasitacion}} </li>
+                <li> Castrado:{{ficha.castracion}} </li>
+                <li> Observaciones: {{ficha.observaciones}}</li>
+                <br>
+   
+            {% endfor %}
+
+        </ul>
+
+        {% else %}
+
+        <p>No se encontro la Ficha</p>
+
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
