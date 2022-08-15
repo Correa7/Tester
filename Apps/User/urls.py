@@ -7,10 +7,7 @@ from Apps.User.views import  login_view,logout_view, register_view,create_perfil
 
 urlpatterns = [
 
-    # path("", index, name="index"),
-    # path("padre/", padre, name="padre"),
-    # path("inicio/", inicio, name="inicio"),
-    # path("en-construccion/", en_construccion, name="en_construccion"),
+
     path("respuesta/", respuesta, name="respuesta"),
     path("perfil", show_perfil , name="perfil"),
     path('login/', login_view, name='login'),
