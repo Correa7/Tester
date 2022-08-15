@@ -1,0 +1,46 @@
+{% extends 'padre.html' %}
+
+{% block titulo %}
+Del
+{% endblock titulo %}
+
+{% block contenidoQueCambia %}
+
+<div class="container-fluid bg-light pt-20">
+
+  <div class="container py-5">
+      <div class="d-flex flex-column text-center mb-5">
+          <h2 class="text-secondary mb-3">Salvando patitas ;)</h2><br>
+          <div class="alert alert-danger" role="alert">
+            {{mensaje}}
+          </div>
+      </div>
+
+      <div class="row pb-3">
+
+          <div class="col-md-6 col-lg-8 mb-4">
+              <div class=" flex-column  bg-white mb-20 p-3 p-sm-20">
+                  <h3 class="flaticon-food display-3 font-weight-normal text-secondary mb-3"></h3>
+                  <h3 class="mb-3"></h3>
+                  
+                
+                        {% csrf_token %}
+                        
+                        <table>
+                            {{form.as_table}}
+                        </table><br>
+
+                        <input class="btn btn-danger" type="submit" value="Eliminar", width="20px">
+                    </form>
+                  
+              </div>
+          </div>
+
+      </div>
+       
+  </div>
+
+</div> 
+
+
+{% endblock %}

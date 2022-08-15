@@ -1,0 +1,29 @@
+{% extends 'padre.html' %}
+
+{% block titulo %}
+Login
+{% endblock titulo %}
+
+{% block contenidoQueCambia %}
+
+<div  style = "padding: 5px 200px;">    
+    
+    <h2>Complete los campos para iniciar sesion</h2>
+    <br>
+
+    <h3>{{error}}</h3>
+    <br>
+    <div>
+        <form class="form-signin" action="{% url "login" %}" method="POST">
+            {% csrf_token %}
+           
+            <table>
+                {{form.as_table}}
+            </table>
+           <br>
+            <input type="submit", value="Iniciar Sesion">
+        </form>
+    </div>
+    
+</div>
+{% endblock %}

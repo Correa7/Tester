@@ -12,5 +12,6 @@ urlpatterns = [
     path("en-construccion/", en_construccion, name="en_construccion"),
     path("Mascota/", include("Apps.Mascota.urls")),
     path("Refugio/", include("Apps.Refugio.urls")),
-    path("Veterinaria/", include("Apps.Veterinaria.urls"))
-]
+    path("Veterinaria/", include("Apps.Veterinaria.urls")),
+    path("User/", include("Apps.User.urls"))
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

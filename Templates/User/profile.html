@@ -1,0 +1,58 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+Perfil
+{% endblock titulo %}
+
+{% block contenidoQueCambia%}   
+<div class="container-fluid bg-light pt-20">
+
+    <div class="container py-5">
+        <div class="d-flex flex-column text-center mb-5">
+            <h2 class="text-secondary mb-3">Salvando patitas ;)</h2><br>
+            <h4 class="display-5 m-0"><span class="text-primary">Bienvenido</span> {{user.username}}</h4>
+        </div>
+
+        <div class="row pb-3">
+
+            <div class="col-md-6 col-lg-4 mb-4">
+
+                <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                    <h3 class="flaticon-house display-3 font-weight-normal text-secondary mb-3"></h3>
+                    <img src="{{user.profile.image.url}}", border-radius="50%", width="200px" >
+                    <br>
+                    <a href="{% url "edit-profile" user.profile.id %}" class="btn btn-primary">Editar Perfil</a>
+                    <br>
+                    <a href="{% url "eliminar-profile" user.profile.id %}" class="btn btn-danger">Eliminar Perfil</a>
+                
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-lg-8 mb-4">
+                <div class="d-flex flex-column  bg-white mb-2 p-3 p-sm-5">
+                    <h3 class="flaticon-food display-3 font-weight-normal text-secondary mb-3"></h3>
+                    <h3 class="mb-3">Mis Datos</h3>
+                    
+                        <br>
+                        <p> Nombre: {{user.profile.first_name}}</p>
+                        <p> Apellido: {{user.profile.last_name}}</p>
+                        <p> Direccion: {{user.profile.direccion}}</p>
+                        <p> Telefono: {{user.profile.phone}}</p>
+                        <p> Email: {{user.profile.address}}</p>
+                        <p> Sobre mi: {{user.profile.description}}</p>
+                        <br>
+                       
+                </div>
+
+            </div>
+
+        </div>
+         
+    </div>
+
+</div>
+
+{%endblock%}

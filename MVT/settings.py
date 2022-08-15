@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "Apps.Mascota",
     "Apps.Refugio",
     "Apps.Veterinaria",
+    "Apps.User",
 ]
 
 
@@ -97,9 +98,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ARG'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Argentina/Buenos_Aires'
 
 USE_I18N = True
 
@@ -113,6 +114,12 @@ STATIC_URL = 'Templates/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR/"Templates/static",]
+
+
+MEDIA_URL = "/Media/"
+
+MEDIA_ROOT = BASE_DIR / "Media"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 

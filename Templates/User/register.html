@@ -1,0 +1,27 @@
+{% extends 'padre.html' %}
+
+{% block titulo %}
+Registro
+{% endblock titulo %}
+
+{% block contenidoQueCambia %}
+
+<div style="background: #fff;"> 
+    <div  style = "padding: 5px 200px;">  
+
+        <h2>Complete los campos para registrarse</h2>
+        <br>
+        <h5>Recuerda: El password debe tener un minimo de 8 caracteres!</h5><br>
+        <div>
+            <form class="form-signin" action="" method="POST">
+                {% csrf_token %}
+                <table>
+                    {{form.as_table}}
+                </table>
+                <input type="submit", value="Ingresar">
+            </form><br>
+            <p>{{errors}}</p><br>
+        </div>
+    </div>
+</div>
+{% endblock %}
