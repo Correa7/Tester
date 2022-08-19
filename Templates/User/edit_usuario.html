@@ -8,8 +8,8 @@ Edit
 
     <div class="container py-5">
         <div class="d-flex flex-column text-center mb-5">
-            <h2 class="text-secondary mb-3">Salvando patitas ;)</h2><br>
-            <h4 class="display-5 m-0"><span class="text-primary">Edita tu perfil</span></h4>
+            <h2 class="text-secondary mb-3">Salvando patitas ;)</h2>
+           
         </div>
 
         <div class="row pb-3">
@@ -17,17 +17,18 @@ Edit
             <div class="col-md-6 col-lg-8 mb-4">
                 <div class="d-flex flex-column  bg-white mb-20 p-3 p-sm-20">
                     <h3 class="flaticon-food display-3 font-weight-normal text-secondary mb-3"></h3>
-                    <h3 class="mb-3">Mis Datos</h3>
+                    <h3 class="mb-3">Mis Datos de Usuario</h3>
                     
                     <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                        
                         <table>
-                            {{form.as_table}}
+                            {{miFormulario.as_table}}
+                            <p>Recuerda: la contraseña dede poseer un minimo de 8 caracteres</p>
                         </table>
                         <br>
                         <input class="btn btn-primary" type="submit" value="Guardar">
-                        <a href="{% url "eliminar-profile" user.profile.id %}" class="btn btn-danger">Eliminar Perfil</a>
+                        <a href="#" class="btn btn-danger">Eliminar Usuario</a>
 
                     </form>   
                     
@@ -35,8 +36,6 @@ Edit
             </div>
 
         </div>
-
-        
          
     </div>
 

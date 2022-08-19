@@ -1,0 +1,32 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    fichas veterinarias -
+{% endblock %}
+
+{% block contenidoQueCambia%}
+
+<div style = "padding: 20px 40px;">
+
+<h3>Listado de Fichas Veterinarias</h3>
+<br>
+
+<ul>
+
+    {%for li in lista %}
+
+        <li> Numero de registro: N°  {{li.registro}} </li>
+        <li> Vacunas :{{li.vacuna_1}} - {{li.vacuna_2}}</li>
+        <li> Desparasitado: {{li.desparasitacion}} </li>
+        <li> Castrado:{{li.castracion}} </li>
+        <li> Observaciones: {{li.observaciones}}</li>
+        <br>
+
+    {% endfor %}
+
+</ul>   
+     
+</div>
+{%endblock%}

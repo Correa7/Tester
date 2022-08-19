@@ -31,7 +31,6 @@ def Ficha_veterinaria (request):
     return render(request, "Veterinaria/ficha_veterinaria.html", {"miFormulario" : miFormulario})
 
 
-
 def busqueda_Vacuna (request):
 
     return render (request, "Veterinaria/ficha_busqueda_veterinaria.html")
@@ -51,3 +50,10 @@ def buscar_ficha (request):
         respuesta ="No enviaste datos"
 
     return render (request, "inicio.html", {"respuesta": respuesta})
+
+
+def lista_fichas (request):
+
+    lista = Ficha_medica.objects.all()
+
+    return render (request, "Veterinaria/lista_Ficha.html", {"lista": lista})
