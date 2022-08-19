@@ -144,7 +144,7 @@ def create_perfil(request):
                     description= form.cleaned_data['description'],
                     image = form.cleaned_data['image']
                 )
-            
+               
             return redirect ("perfil")
 
 
@@ -164,8 +164,6 @@ def create_perfil(request):
 def show_perfil (request):
 
     if request.user.is_authenticated:
-
-        # return HttpResponse (request.user.profile.phone)
 
         usuario = (
             
