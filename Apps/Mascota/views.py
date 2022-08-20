@@ -4,7 +4,7 @@ import datetime
 from django.template import loader
 from Apps.Mascota.models import Mascota
 from Apps.Mascota.forms import Mascota_form
-
+from django.views.generic import ListView, DetailView, CreateView, DeleteView
 
 def ficha_mascota (request):
 
@@ -59,6 +59,15 @@ def lista_mascota (request):
     mascotas = Mascota.objects.all() #Trae todos
 
     return render(request, 'Mascota/lista_mascota.html',{'mascotas':mascotas})      
+
+
+
+
+
+
+class Detail_Mascota(DetailView):
+    model = Mascota
+    template_name = 'Mascota/detalle_mascota.html'
 
 
    

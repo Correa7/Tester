@@ -1,8 +1,10 @@
 from django.db import models
-
+from Apps.Mascota.models import Mascota
 # Create your models here.
 
 class Ficha_medica (models.Model):
+
+    mascota = models.OneToOneField(Mascota, on_delete=models.CASCADE, related_name='veterinaria', null=True)
 
     registro = models.IntegerField(unique=True)
     vacuna_1 = models.CharField(max_length= 100, null=True, blank=True,)
@@ -13,6 +15,6 @@ class Ficha_medica (models.Model):
 
 
     def __str__(self) -> str:
-        return f" {self.registro} - {self.vacuna_1} - {self.vacuna_2} - {self.desparacitacion} - {self.castracion} - {self.observaciones}"
+        return f" {self.registro} - {self.vacuna_1} - {self.vacuna_2} - {self.desparasitacion} - {self.castracion} - {self.observaciones}" + ' - veterinaria'
 
   

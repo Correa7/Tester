@@ -106,17 +106,20 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
-                    <a href="{% url "index" %}" class="nav-item nav-link active">Inicio</a>
-                    <a href="{% url "en_construccion" %}" class="nav-item nav-link">Abaut</a>
-                    <a href="{% url "en_construccion" %}" class="nav-item nav-link">Contacto</a>
                     
                     
                     {% if request.user.is_staff %}
+
+                    <a href="{% url "index" %}" class="nav-item nav-link active">Inicio</a>
+                    <a href="{% url "en_construccion" %}" class="nav-item nav-link">Abaut</a>
+                   
+                    <a href="{% url "en_construccion" %}" class="nav-item nav-link">Contacto</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Mascotas</a>
                         <div class="dropdown-menu rounded-0 m-0">
+                            <a href="{% url "lista-mascota" %}" class="dropdown-item">Mascotas</a>
                             <a href="{% url "ficha-mascotas" %}" class="dropdown-item">Cargar Mascota rescatada</a>
-                            <a href="{% url "ficha-busqueda-mascota"%}" class="dropdown-item">Buscar Mascota</a>
+                            <a href="{% url "ficha-busqueda-mascota" %}" class="dropdown-item">Buscar Mascota</a>
                         </div>
                     </div>
          
@@ -124,15 +127,24 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Refugios</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="{% url "ficha-refugio" %}" class="dropdown-item">Cargar Refugio</a>
-                            <a href="{% url "ficha-busqueda-refugio" %}" class="dropdown-item">Buscar Refugio</a>
+                            <a href="{% url "ficha-busqueda-refugio"%}" class="dropdown-item">Buscar Refugio</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Veterinaria</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="{% url "ficha-veterinaria" %}" class="dropdown-item">Cargar Ficha Medica</a>
+                            <a href="{% url "ficha-veterinaria" %}" class="dropdown-item">Cargar Ficha Veterinaria</a>
                             <a href="{% url "ficha-busqueda"%}" class="dropdown-item">Buscar Ficha Veterinaria</a>
                         </div>
+                    {% else %}
+
+                    <a href="{% url "index" %}" class="nav-item nav-link active">Inicio</a>
+                    <a href="{% url "en_construccion" %}" class="nav-item nav-link">Abaut</a>
+                    <a href="{% url "lista-mascota" %}" class="nav-item nav-link">Mascotas</a>
+                    <a href="{% url "en_construccion" %}" class="nav-item nav-link">Contacto</a>
+
+
+
                     {% endif %}
                     </div>
                    

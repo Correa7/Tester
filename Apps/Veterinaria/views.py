@@ -5,8 +5,6 @@ from django.template import loader
 from Apps.Veterinaria.models import Ficha_medica
 from Apps.Veterinaria.forms import Ficha_form
 
-# Create your views here.
-
 
 def Ficha_veterinaria (request):
 
@@ -22,7 +20,7 @@ def Ficha_veterinaria (request):
 
             ficha.save()
 
-            return render (request, "inicio.html" , context ={})
+            return render (request, "inicio.html" ,{"miFormulario":miFormulario})
 
     else:
 
