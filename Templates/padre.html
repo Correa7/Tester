@@ -82,7 +82,7 @@
                     </div>
                     <div class="d-inline-flex flex-column text-center px-3 border-right">
                         <h6>Envíanos un email</h6>
-                        <p class="m-0">info@example.com</p>
+                        <p class="m-0">home.salvando.patitas@gmail.com</p>
                     </div>
                     <div class="d-inline-flex flex-column text-center pl-3">
                         <h6>Llámanos</h6>
@@ -112,7 +112,7 @@
                     <a href="{% url "index" %}" class="nav-item nav-link active">Inicio</a>
                     <a href="{% url "en_construccion" %}" class="nav-item nav-link">Abaut</a>
                    
-                    <a href="{% url "en_construccion" %}" class="nav-item nav-link">Contacto</a>
+                   
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Mascotas</a>
                         <div class="dropdown-menu rounded-0 m-0">
@@ -125,8 +125,10 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Refugios</a>
                         <div class="dropdown-menu rounded-0 m-0">
+                            <a href="{% url "lista-refugio" %}" class="dropdown-item">Refugios</a>
                             <a href="{% url "ficha-refugio" %}" class="dropdown-item">Cargar Refugio</a>
-                            <a href="{% url "ficha-busqueda-refugio"%}" class="dropdown-item">Buscar Refugio</a>
+                            <a href="{% url "crear-profile-refugio" %}" class="dropdown-item">Cargar Perfil Refugio</a>
+                            <a href="{% url "ficha-busqueda-refugio" %}" class="dropdown-item">Buscar Refugio</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -140,7 +142,8 @@
                     <a href="{% url "index" %}" class="nav-item nav-link active">Inicio</a>
                     <a href="{% url "en_construccion" %}" class="nav-item nav-link">Abaut</a>
                     <a href="{% url "lista-mascota" %}" class="nav-item nav-link">Mascotas</a>
-                    <a href="{% url "en_construccion" %}" class="nav-item nav-link">Contacto</a>
+                    <a href="{% url "lista-refugio" %}" class="nav-item nav-link">Refugios</a>
+                
 
 
 
@@ -174,6 +177,7 @@
                         <div class="dropdown-menu rounded-0 m-0">
                            
                             <a href="{% url "crear-profile" %}" class="dropdown-item">Crea tu Perfil</a>
+                            <a href="{% url "eliminar-usuario" user.id %}" class="dropdown-item">Eliminar Usuario</a>
                             
                             <a href="{% url "logout" %}" class="dropdown-item">Logout</a>
                         </div>

@@ -1,0 +1,156 @@
+{% extends "padre.html" %}
+
+{% load static %}
+{% block titulo %}
+Listado de mascotas
+{% endblock titulo %}
+{% block contenidoQueCambia%}
+
+
+
+<div class="container-fluid bg-light pt-2">
+    <div class="container py-5">
+        <div class="d-flex flex-column text-center mb-5">
+            <h2 class="text-secondary mb-3"></h2>
+            
+        </div>
+
+            <div class="row pb-3">
+
+                <div class="col-md-6 col-lg-6 mb-4">
+                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                        <h3 class="flaticon-house display-3 font-weight-normal text-secondary mb-3"></h3>
+                        <h3 class="mb-3">Ficha: Refugio</h3><br>    
+                    <table>
+                        <p> Nombre: {{refugio.nombre}} </p>
+                        <p> Telefono: {{refugio.telefono}} </p>
+                        <p> Email: {{refugio.email}} </p>
+                        <p> Domicilio: {{refugio.domicilio}} </p>
+                        <br>
+                        <br>
+                       
+                    </table>
+                    </div>
+                </div>
+
+               
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                        <h3 class="flaticon-grooming display-3 font-weight-normal text-secondary mb-3"></h3>
+                        <img src="{{refugio.logo.url}}", border-radius= 50%, width="180px" height="180px
+                        "><br>
+                        <a href="{% url "voluntario" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Postulate a voluntario aqui</a>
+                    </div>
+                </div>
+
+             </div>   
+        
+    </div>
+</div>
+<br><br>
+<article>
+
+{% if request.user.is_staff %}
+   
+<div align="center">
+    {% if refugio.RefugioProf %}
+<a href="{% url "edit-profile-refugio" refugio.RefugioProf.id %}" class="btn  btn-secondary mt-1 mt-md-2 px-2" align="center">editar perfil</a>
+<a href="{% url "eliminar-profile-refugio" refugio.RefugioProf.id %}" class="btn  btn-secondary mt-1 mt-md-2 px-2" align="center">eliminar perfil</a>
+    {%endif%}
+</div>
+{%endif%}
+<br>
+<br>
+<br>
+    <div style="margin-left:50px;margin-right:15px;width:850px" align="justify">
+<h2>QUIENES SOMOS</h2>
+{% if refugio.RefugioProf.image_1 %}
+
+    <img src="{{refugio.RefugioProf.image_1.url}}" width="280" hspace="20" align="right">
+    {%else%}
+    {%endif%}
+
+    <br>
+    {% if refugio.RefugioProf.description %}
+    <p> {{refugio.RefugioProf.description}} </p>
+    {%else%}
+    {%endif%}
+    <p>
+        
+"Somos una Asociación sin fines de lucro, que desde hace muchos años nos dedicamos a la 
+
+protección, la recuperación y a darle refugio a los animales en riesgo. Nuestro refugio histórico 
+
+está ubicado en la Provincia de Buenos Aires, en la localidad de José C. Paz y alberga 
+
+actualmente a 500 perros y 70 gatitos. Además damos asistencia a los animales de la zona, con 
+
+dueños de bajos recursos o carenciados.&nbsp;<br><br>
+
+En el año 2010 nos hicimos cargo del refugio municipal de General Rodriguez (los ex- mapa 
+
+conocidos como "Los Rodriguitos"). Ellos suman en total 300 perros, que serían cientos más 
+
+sin el trabajo de difusión que realizamos solicitando y dando en adopción, a los animales allí 
+
+alojados, dado que el Municipio de la zona lleva permanentemente al predio, animales sin 
+
+esterilizar y con todo tipo de patologías o callejeros de los que también nos hacemos cargo.&nbsp;<br><br>
+{% if refugio.RefugioProf.image_4%}
+<img src="{{refugio.RefugioProf.image_4.url}}" width="280"hspace="20" align="left">
+{%else%}
+{%endif%}
+<br>
+
+No contamos con subsidios, ni padrinazgos, solo contamos con la ayuda de quienes conociendo 
+
+nuestra tarea y en especial a los Roqueritos y Rodriguitos, nos ayudan de forma eventual o 
+
+haciéndose socios por una suma mensual que ellos deciden, por eso para nosotros es tan 
+
+importante tu colaboración, tu participación y la difusión que puedas brindarle a nuestra labor 
+
+y causa, dado que sin ayuda, se nos hace muy difícil seguir adelante.
+<br><br><br>
+{% if refugio.RefugioProf.image_2 %}
+<img src="{{refugio.RefugioProf.image_2.url}}" width="280" hspace="20" align="right">
+{%else%}
+{%endif%}
+Nuestra tarea diaria es la atención y recuperación de los animalitos que llegan a nuestro 
+
+Refugio. Contamos para ellos con un consultorio veterinario y con dos profesionales que 
+
+atienden no sólo a nuestros refugiados, sino también a los animales enfermos de vecinos 
+
+carenciados, o sin recursos. Una vez recuperados tratamos de conseguirles hogares 
+
+adoptivos responsables. 
+<br><br>
+<br><br>
+<br><br>
+{% if refugio.RefugioProf.image_3 %}
+<img src="{{refugio.RefugioProf.image_3.url}}" width="200" hspace="20" align="left">
+{%else%}
+{%endif%}
+<b>
+INFO ADICIONAL:
+</b><br>
+El estado de los animales alojados, y el del Refugio mereció la aprobación del Ministerio de 
+
+Asuntos Agrarios de la provincia de Buenos Aires que lo habilitó legalmente al igual que al 
+
+consultorio veterinario. A su vez la municipalidad de José C. Paz nos declaró Entidad de 
+
+Bién Público.
+</p>
+<p></p><br>
+     <br><br><br>
+   
+
+<br><center>
+
+</center></div>
+</article>
+
+
+{%endblock%}

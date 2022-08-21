@@ -1,5 +1,4 @@
 from http.client import FORBIDDEN
-
 from tkinter import Widget
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User

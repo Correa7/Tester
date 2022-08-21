@@ -13,5 +13,6 @@ urlpatterns = [
     path("Mascota/", include("Apps.Mascota.urls")),
     path("Refugio/", include("Apps.Refugio.urls")),
     path("Veterinaria/", include("Apps.Veterinaria.urls")),
-    path("User/", include("Apps.User.urls"))
+    path("User/", include("Apps.User.urls")),
+    path("SendMail/", include("Apps.SendMail.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

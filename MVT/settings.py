@@ -18,6 +18,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -31,6 +32,7 @@ INSTALLED_APPS = [
     "Apps.Refugio",
     "Apps.Veterinaria",
     "Apps.User",
+    "Apps.SendMail",
 ]
 
 
@@ -119,6 +121,12 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/Media/"
 
 MEDIA_ROOT = BASE_DIR / "Media"
+
+EMAIL_HOST = 'smtp.googlemail.com'
+EMAIL_HOST_USER = 'home.salvando.patitas@gmail.com'
+EMAIL_HOST_PASSWORD = 'rzhnmbgzusdjhmgy'
+EMAIL_PORT = 587
+EMAIL_USE_TLS= True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

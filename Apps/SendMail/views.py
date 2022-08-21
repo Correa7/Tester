@@ -1,0 +1,157 @@
+from django.shortcuts import render, redirect
+from django.conf import settings
+from django.template.loader import get_template
+from django.core.mail import EmailMultiAlternatives
+from django.contrib.auth.decorators import login_required
+from .forms import adopcionForm, VoluntarioForm, donacionForm
+
+# Create your views here.
+
+
+
+def send_mascota(mail):
+
+    context= {"mail": mail}
+    template = get_template("SendMail/correo_adopcion.html")
+    content = template.render(context)
+    email = EmailMultiAlternatives(
+        "Adopcion",
+        "Adoptar nos hace fellices",
+        settings.EMAIL_HOST_USER,
+        [mail],
+    )
+
+    email.attach_alternative(content,"Text/html")
+    email.send()
+    return redirect ("inicio")
+@login_required
+def form_adopcion(request):
+
+    if request.method == "POST":
+
+        form = adopcionForm(request.POST)
+    
+        if form.is_valid():
+
+            nombre= form.cleaned_data["nombre"]
+            email= form.cleaned_data["email"]
+            print(email)
+
+            mail = request.POST.get("email")
+
+            print(mail)
+
+            send_mascota(mail)
+    
+            respuesta= f"Gracias por postularte, no olvides revisar tu casilla de correos para continuar con la postulacion"
+
+        return render (request, "inicio.html", {"respuesta":respuesta})
+
+
+    else:
+     
+        form= adopcionForm()
+     
+    return render (request, "SendMail/form_adopcion.html", {"form":form})
+    
+
+
+
+
+##################################################
+
+
+
+def send_voluntario (mail):
+
+    context= {"mail": mail}
+    print(context)
+    template = get_template("SendMail/correo_voluntario.html")
+    content = template.render(context)
+    email = EmailMultiAlternatives(
+        "Formulario postulacion Voluntario",
+        "Voluntario para salvar patitas",
+        settings.EMAIL_HOST_USER,
+        [mail],
+    )
+
+    email.attach_alternative(content,"Text/html")
+    email.send()
+    
+
+@login_required
+def form_voluntario (request):
+
+    if request.method == "POST":
+
+        form = VoluntarioForm(request.POST)
+    
+        if form.is_valid():
+
+            nombre= form.cleaned_data["nombre"]
+            email= form.cleaned_data["email"]
+            refugio= form.cleaned_data["refugio"]
+            print(email)
+
+            mail = request.POST.get("email")
+
+            print(mail)
+
+            send_voluntario(mail)
+    
+        return render (request, "SendMail/form_voluntario.html")
+
+    else:
+     
+        form= VoluntarioForm()
+     
+    return render (request, "SendMail/form_voluntario.html", {"form":form})
+     
+
+###########################################################
+
+
+def send_donar (mail):
+    context= {"mail": mail}
+    template = get_template("SendMail/correo_donacion.html")
+    content = template.render(context)
+    email = EmailMultiAlternatives(
+        "Formulario postulacion Voluntario",
+        "Voluntario para salvar patitas",
+        settings.EMAIL_HOST_USER,
+        [mail],
+    )
+
+    email.attach_alternative(content,"Text/html")
+    email.send()
+
+
+@login_required
+def form_donar(request):
+
+    if request.method == "POST":
+
+        form = donacionForm(request.POST)
+    
+        if form.is_valid():
+
+            nombre= form.cleaned_data["nombre"]
+            email= form.cleaned_data["email"]
+            print(email)
+
+            mail = request.POST.get("email")
+
+            print(mail)
+
+            send_donar(mail)
+    
+        return render (request, "SendMail/form_donar.html")
+
+    else:
+     
+        form= donacionForm()
+     
+    return render (request, "SendMail/form_donar.html", {"form":form})
+    
+    
+    

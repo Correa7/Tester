@@ -1,0 +1,94 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    Formulario de postulacion Voluntarios
+{% endblock %}
+
+{% block contenidoQueCambia%}
+<br>
+<br>
+<div class="container-fluid bg-light">
+    <div class="container">
+    
+        <div class="row align-items-center">
+            <div class="col-lg-5">
+                <div class="bg-primary py-5 px-4 px-sm-5"; ">
+
+                    <h3>Formulario de postulacion</h3>
+                    
+                    
+                    <form action= " " method ="POST" class="py-5">  {% csrf_token %}
+                       
+
+                            <p style="font-size: 20px ;">{{ form.nombre }}</p><br>
+                            <p style="font-size: 20px ;">{{ form.email }}</p><br>
+                            <p style="font-size: 20px ;">{{ form.refugio }}</p>
+                            <br>
+                            <br>
+                       
+
+                    
+                
+                        <div>
+                         
+                            <input type="submit" name="mail"    class="btn btn-dark btn-block border-0 py-3">
+                          
+                        </div>
+                   
+                    </form>
+
+
+                </div>
+            </div>
+            <div class="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
+                <h2 class="text-secondary mb-3">Conviértete en voluntario!</h2>
+                <h1 class="display-4 mb-4">Salva a <span class="text-primary">una patita</span></h1>
+                <p>Labore vero lorem eos sed aliquy ipsum aliquy sed. Vero dolore dolore takima ipsum lorem rebum</p>
+                <div class="row py-2">
+                    <div class="col-sm-6">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2">
+                                <h1 class="flaticon-house font-weight-normal text-secondary m-0 mr-3"></h1>
+                                <h5 class="text-truncate m-0">Cuidado veterinario</h5>
+                            </div>
+                            <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2">
+                                <h1 class="flaticon-food font-weight-normal text-secondary m-0 mr-3"></h1>
+                                <h5 class="text-truncate m-0">Cuidado alimentario</h5>
+                            </div>
+                            <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2">
+                                <h1 class="flaticon-grooming font-weight-normal text-secondary m-0 mr-3"></h1>
+                                <h5 class="text-truncate m-0">Acompañamiento animal</h5>
+                            </div>
+                            <p class="m-0">Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2">
+                                <h1 class="flaticon-toy font-weight-normal text-secondary m-0 mr-3"></h1>
+                                <h5 class="text-truncate m-0">Entrenamiento animal</h5>
+                            </div>
+                            <p class="m-0">Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+                   
+{%endblock%}

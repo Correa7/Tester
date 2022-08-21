@@ -1,0 +1,31 @@
+{% extends 'padre.html' %}
+{% block titulo %}
+Create
+{% endblock titulo %}
+
+{% block contenidoQueCambia %}
+
+
+<div  style = "padding: 5px 200px;"> 
+    
+    <div style = "padding: 20px 80px;border-color: BLACK;border-width: 5px;border-style: solid;">
+
+
+        <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+            <h2>Perfil Refugio</h2>
+
+            <table>
+            {{form.as_table}}
+            </table>
+            <br>
+
+            <input class="btn btn-primary" type="submit" value="Guardar">
+        </form>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest
 from django.shortcuts import get_object_or_404, render,redirect
-
+from django.contrib.auth.models import User
 from Apps.User.models import User_profile
 from Apps.User.forms import User_profile_Form, UserEditForm, User_registration_form,UserEditPerfilForm
 
@@ -120,6 +120,25 @@ def edit_user(request,id):
 
         return render (request,'User/edit_usuario.html',{"miFormulario":miFormulario, "usuario":usuario})
 
+@login_required
+def del_user(request,id):
+
+    profile = User.objects.get(id=id)
+
+    if request.method == 'GET':
+        mensaje = 'Esta por borrar el perfil'
+        form = User_registration_form(initial={
+            "username": profile.username,
+            "email": profile.email
+        })
+        context = {'form':form,'mensaje':mensaje}
+        return render (request,'User/del_user.html',context)
+        
+    else:
+        profile = User.objects.get(id=id)
+        profile.delete()
+        return redirect('index')
+
 
 
 
@@ -208,7 +227,9 @@ def eliminar_perfil(request,id):
         form = User_profile_Form(instance=profile)
         context = {'form':form,'mensaje':mensaje}
         return render (request,'User/del_profile.html',context)
+        
     else:
+        profile = User_profile.objects.get(id=id)
         profile.delete()
         return redirect('index')
 

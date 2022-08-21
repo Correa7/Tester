@@ -6,6 +6,9 @@ from Apps.Mascota.models import Mascota
 from Apps.Mascota.forms import Mascota_form
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
 
+
+
+
 def ficha_mascota (request):
 
     if request.method == "POST":

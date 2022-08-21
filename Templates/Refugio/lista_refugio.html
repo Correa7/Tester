@@ -1,0 +1,49 @@
+{% extends "padre.html" %}
+
+{% load static %}
+{% block titulo %}
+Listado de mascotas
+{% endblock titulo %}
+
+{% block contenidoQueCambia%}
+
+
+
+<div class="container-fluid bg-light pt-5">
+    <div class="container py-5">
+        <div class="d-flex flex-column text-center mb-5">
+            <h4 class="text-secondary mb-3">Nuestra labor</h4>
+            <h1 class="display-4 m-0"><span class="text-primary">Premium</span> Pet Services</h1>
+        </div>
+        <div class="row pb-3">
+
+            {% for refugio in refugios %}
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                    
+                    <h3 class="mb-3"></h3><br>
+                    <img src="{{refugio.logo.url}}", border-radius= 50%, width="180px" height="180px
+                    "><br>
+                    
+                    <p> Nombre: {{refugio.nombre}} </p>
+                    <p> Direccion: {{refugio.domicilio}}</p>
+                    
+                
+                    <br>
+
+                    <a href="{% url "detalle-refugio" refugio.id %}" class="btn btn-primary">Detalle</a>
+                    <br>
+                    <a href="{% url "voluntario" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Se un Voluntario</a>
+                
+                </div>
+            </div>
+
+            {% endfor%}
+           
+
+        </div>
+    </div>
+</div>
+
+{% endblock contenidoQueCambia%}
