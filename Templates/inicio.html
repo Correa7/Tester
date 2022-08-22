@@ -4,16 +4,29 @@
 
 {% block contenidoQueCambia%}
 
-
-    <div style = "padding: 40px 300px;">
-
-        <h1>Operacion Terminada</h1>
-        <br>
-        <h1>{{respuesta}}</h1>
-        <br>
-
+<br><br><br>
+    <div class="container-fluid bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <div class="bg-primary py-5 px-10 px-sm-5">
+                        <img class="img-fluid w-100" src="{%static "img/team-3.jpg" %}" weidht="200px" alt=""><br>
+                       
+                    </div>
+                </div>
+                <div class="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
+                    <h1 class="text-secondary mb-3">Salvemos Patitas Juntos!</h1>
+                    <h3 class="display-4 mb-4">Salva a <span class="text-primary">una patita</span></h3>
+                    <h3>{{respuesta}}</h3>
+                    <div class="row py-2">
+                       
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
+    
 
 
 {%endblock%}

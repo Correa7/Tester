@@ -14,3 +14,7 @@ def inicio (request):
 
 def en_construccion (request):
     return render (request, "en_construccion.html")
+
+
+def voluntarios (request):
+    return render (request, "voluntarios.html")

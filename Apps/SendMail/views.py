@@ -24,6 +24,7 @@ def send_mascota(mail):
     email.attach_alternative(content,"Text/html")
     email.send()
     return redirect ("inicio")
+
 @login_required
 def form_adopcion(request):
 
@@ -43,7 +44,7 @@ def form_adopcion(request):
 
             send_mascota(mail)
     
-            respuesta= f"Gracias por postularte, no olvides revisar tu casilla de correos para continuar con la postulacion"
+            respuesta= f"Felicidades has completado el primer paso para Adoptar una mascota, no olvides revisar tu casilla de correos para continuar con la postulacion"
 
         return render (request, "inicio.html", {"respuesta":respuesta})
 
@@ -77,6 +78,7 @@ def send_voluntario (mail):
 
     email.attach_alternative(content,"Text/html")
     email.send()
+
     
 
 @login_required
@@ -98,8 +100,11 @@ def form_voluntario (request):
             print(mail)
 
             send_voluntario(mail)
+
+            respuesta= f"Ya casi eres un Voluntario continua tu postulacion siguiendo las instrucciones del mail que te enviamos, no olvides revisar tu casilla de correos"
+
+        return render (request, "inicio.html", {"respuesta":respuesta})
     
-        return render (request, "SendMail/form_voluntario.html")
 
     else:
      
@@ -125,6 +130,8 @@ def send_donar (mail):
     email.attach_alternative(content,"Text/html")
     email.send()
 
+    
+
 
 @login_required
 def form_donar(request):
@@ -145,8 +152,9 @@ def form_donar(request):
 
             send_donar(mail)
     
-        return render (request, "SendMail/form_donar.html")
+            respuesta= f"Gracias por confiar en nosotros, tu donacion nos ayuda a seguir creciendo, no olvides revisar tu casilla de correos para continuar con la postulacion"
 
+        return render (request, "inicio.html", {"respuesta":respuesta})
     else:
      
         form= donacionForm()

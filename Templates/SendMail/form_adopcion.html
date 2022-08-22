@@ -3,29 +3,139 @@
 {% load static %}
 
 {% block titulo %}
-    Formulario de postulacion Voluntarios
+    Formulario de Adopcion
 {% endblock %}
 
 {% block contenidoQueCambia%}
 <br>
 <br>
-
 <br>
-<div style = "padding: 20px 40px;">
+<br>
+<div class="container-fluid bg-light">
+    <div class="container">
+    
+        <div class="row align-items-center">
+            <div class="col-lg-5">
+                <div class="bg-primary py-5 px-4 px-sm-5"; ">
 
-    <form action= " " method ="POST" style = "padding: 20px 80px;border-color: BLACK;border-width: 5px;border-style: solid;"> 
-        {% csrf_token %}
-    
-        <table>
-    
-            {{ form.as_table }}
-    
-        </table>
-    
-     <input type="submit" name="mail">
-    
-    
-    </form> 
-     
+                    <h3>Formulario de Adopcion</h3>
+                    
+                    
+                    <form action= " " method ="POST" class="py-5">  {% csrf_token %}
+                       
+
+                            <p style="font-size: 20px ;">{{ form.nombre }}</p><br>
+                            <p style="font-size: 20px ;">{{ form.email }}</p><br>
+                            <p style="font-size: 20px ;">{{ form.mascota }}</p>
+                            <br>
+                            <br>
+                       
+
+                    
+                
+                        <div>
+                          
+                            <input type="submit" name="mail"    class="btn btn-dark btn-block border-0 py-3">
+                          
+                        </div>
+                   
+                    </form>
+
+
+                </div>
+            </div>
+            <div class="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
+                <h2 class="text-secondary mb-3"align="center">Adopta no compres!</h2>
+                <h1 class="display-4 mb-4">Salva a <span class="text-primary">una patita</span></h1>
+                <li>Las adopciones solamente se realizan dentro de la ciudad de Buenos Aires, por razones de seguimiento.</li>
+                <li>Todos los perritos son llevados a domicilio por el área de adopciones a su nuevo hogar. </li>
+                <li>En el caso que el animal no se encuentre esterilizado, es compromiso del adoptante, sea macho o hembra, esterilizar al animal. </li>
+                <p></p>
+                <div class="row py-2">
+                    <div class="col-sm-6">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2">
+                                <h1 class="flaticon-house font-weight-normal text-secondary m-0 mr-3"></h1>
+                                <h5 class="text-truncate m-0">Cuidado veterinario</h5>
+                            </div>
+                            <p>Diam amet eos at no eos sit lorem</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2">
+                                <h1 class="flaticon-food font-weight-normal text-secondary m-0 mr-3"></h1>
+                                <h5 class="text-truncate m-0">Cuidado alimentario</h5>
+                            </div>
+                            <p>Diam amet eos at no eos sit lorem</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2">
+                                <h1 class="flaticon-grooming font-weight-normal text-secondary m-0 mr-3"></h1>
+                                <h5 class="text-truncate m-0">Acompañamiento animal</h5>
+                            </div>
+                            <p class="m-0">Diam amet eos at no eos sit lorem</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2">
+                                <h1 class="flaticon-toy font-weight-normal text-secondary m-0 mr-3"></h1>
+                                <h5 class="text-truncate m-0">Entrenamiento animal</h5>
+                            </div>
+                            <p class="m-0">Diam amet eos at no eos sit lorem</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<br>
+
+
+
+<div class="container-fluid bg-light my-5 p-0 py-5">
+    <div class="container p-0 py-5">
+        <div class="d-flex flex-column text-center mb-5">
+            <h4 class="text-secondary mb-3">Testimonios</h4>
+            <h1 class="display-4 m-0">Dueños de patitas <span class="text-primary">adoptadas</span></h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel">
+            <div class="bg-white mx-3 p-4">
+                <div class="d-flex align-items-end mb-3 mt-n4 ml-n4">
+                    <img class="img-fluid" src="{% static "img/testimonial-1.jpg" %}" style="width: 80px; height: 80px;" alt="">
+                    <div class="ml-3">
+                        <h5>Adoptante: Julián Álvarez</h5>
+                        <i>Adoptada: Nala</i>
+                    </div>
+                </div>
+                <p class="m-0">Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita</p>
+            </div>
+            <div class="bg-white mx-3 p-4">
+                <div class="d-flex align-items-end mb-3 mt-n4 ml-n4">
+                    <img class="img-fluid" src="{% static "img/testimonial-2.jpg" %}" style="width: 80px; height: 80px;" alt="">
+                    <div class="ml-3">
+                        <h5>Adoptante: Tomás Uri</h5>
+                        <i>Adoptado: Rocky</i>
+                    </div>
+                </div>
+                <p class="m-0">Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita</p>
+            </div>
+            <div class="bg-white mx-3 p-4">
+                <div class="d-flex align-items-end mb-3 mt-n4 ml-n4">
+                    <img class="img-fluid" src="{% static "img/testimonial-3.jpg" %}" style="width: 80px; height: 80px;" alt="">
+                    <div class="ml-3">
+                        <h5>Adoptante: Luca Gior</h5>
+                        <i>Adoptada: Lola</i>
+                    </div>
+                </div>
+                <p class="m-0">Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 {%endblock%}

@@ -7,10 +7,55 @@
 {% endblock %}
 
 {% block contenidoQueCambia%}
+<div class="container-fluid text-white py-4 px-sm-3 px-md-5" style="background: #111111;">
+        <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
+            <div class="row pt-5">
+                <div class="col-lg-4 col-md-12 mb-5">
+                    <h1 class="mb-3 display-5 text-capitalize text-white"><span class="text-primary">Tu Ayuda</span>Salva Patitas</h1>
+                    <p class="m-0">A través de un depósito bancario. Enviar por favor un e-mail a salvando-patitas@refugiosfa.org avisando sobre dicha transferencia
 
-<div style = "padding: 20px 40px;">
+                        Banco Comafi
+                        
+                        Cuenta corriente N° 0000-00175-6
+                        
+                        CBU 2991209300934017585606
+                        
+                        CUIT 70-71998132-7</p>
+                </div>
+                <div class="col-lg-4 col-md-12 mb-5">
+                    
+                    <p class="m-0">Nuestro trabajo depende enteramente de tu ayuda. Necesitamos tu apoyo para solventar el enorme costo de manutención de 400 animales ya que no poseemos ayuda del estado ni de empresas privadas. Gracias a tu aporte logramos seguir con nuestras tareas, para lograr un futuro libre de maltrato y abandono animal. Ayudanos a seguir ayudándolos con el monto que puedas y quieras, no hay montos estipulados ni tiempo de permanencia.
 
+                        Gracias por permitirnos seguir trabajando por ellos.</p>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <h2 class="text-primary mb-4"  >Donaciones</h2>
+
+                    <form action= " " method ="POST" class="py-5">  {% csrf_token %}
+
+                        <p style="font-size:23px ;">{{ form.nombre }}</p><br>
+                        <p style="font-size:23px ;">{{ form.email }}</p><br>
+                      
+                            <input class="btn btn-lg btn-primary btn-block border-0" type="submit" name="mail">
+                      
+                    </form>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="container-fluid text-white py-4 px-sm-3 px-md-5" style="background: #111111;">
+   
     
-     
+    
+        <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
+            <div class="container p-0 py-5">
+                <div class="d-flex flex-column text-center mb-5">
+                  
+                </div>
+                 
+            </div>
+        </div>
+    </div>
 </div>
 {%endblock%}

@@ -137,12 +137,15 @@
                             <a href="{% url "ficha-veterinaria" %}" class="dropdown-item">Cargar Ficha Veterinaria</a>
                             <a href="{% url "ficha-busqueda"%}" class="dropdown-item">Buscar Ficha Veterinaria</a>
                         </div>
+                    </div>
+                        <a href="{% url "donaciones" %}" class="nav-item nav-link">Donaciones</a>  
                     {% else %}
 
                     <a href="{% url "index" %}" class="nav-item nav-link active">Inicio</a>
                     <a href="{% url "en_construccion" %}" class="nav-item nav-link">Abaut</a>
                     <a href="{% url "lista-mascota" %}" class="nav-item nav-link">Mascotas</a>
                     <a href="{% url "lista-refugio" %}" class="nav-item nav-link">Refugios</a>
+                    <a href="{% url "donaciones" %}" class="nav-item nav-link">Donaciones</a>  
                 
 
 
@@ -160,7 +163,7 @@
                         
                         {% if user.profile.image %}
 
-                        <img src="{{user.profile.image.url}}" , border-radius="50%", width="40px", height="40px" >
+                        <img src="{{user.profile.image.url}}" , style="border-radius: 50% ;" width="40px", height="40px">
 
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="{% url "perfil" %}" class="dropdown-item">Mi perfil</a>

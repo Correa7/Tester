@@ -7,7 +7,7 @@ class adopcionForm (forms.Form):
 
     nombre = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'placeholder':'Ingresa tu nombre'}) )
     email = forms.EmailField(label='Email  ',widget=forms.TextInput(attrs={'placeholder':'Ingresa tu email'}),required=True)
-
+    mascota = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'placeholder':'Nombre del Refugio'}) )
 class VoluntarioForm (forms.Form):
 
     nombre = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'placeholder':'Ingresa tu nombre'}) )

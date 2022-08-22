@@ -138,6 +138,8 @@
                             <a href="{% url "ficha-veterinaria" %}" class="dropdown-item">Cargar Ficha Veterinaria</a>
                             <a href="{% url "ficha-busqueda"%}" class="dropdown-item">Buscar Ficha Veterinaria</a>
                         </div>
+                    </div>
+                    <a href="{% url "donaciones" %}" class="nav-item nav-link">Donaciones</a>    
                     {% else %}
 
                     <a href="{% url "index" %}" class="nav-item nav-link active">Inicio</a>
@@ -145,6 +147,7 @@
                     <a href="{% url "lista-mascota" %}" class="nav-item nav-link">Mascotas</a>
                     
                     <a href="{% url "lista-refugio" %}" class="nav-item nav-link">Refugios</a>
+                    <a href="{% url "donaciones" %}" class="nav-item nav-link">Donaciones</a>
                     
 
 
@@ -180,7 +183,7 @@
                     <div class="dropdown-menu rounded-0 m-0">
                        
                         <a href="{% url "crear-profile" %}" class="dropdown-item">Crea tu Perfil</a>
-                        <a href="{% url "eliminar-usuario" user.id %}" class="dropdown-item">Eliminar Usuario</a>
+                        <a href="{% url "eliminar-usuario" user.id%}" class="dropdown-item">Eliminar Usuario</a>
                         <a href="{% url "logout" %}" class="dropdown-item">Logout</a>
                     </div>
                     {% endif%}
@@ -224,10 +227,8 @@
                             <h3 class="text-white mb-3 d-none d-sm-block">No Compres, Adopta!</h3>
                             <h1 class="display-3 text-white mb-3">Participa, las mascotas te necesitan!</h1>
                             <h5 class="text-white mb-3 d-none d-sm-block">Sumate a la causa: Se Voluntario de uno de nuestros Refugios.</h5>
-                            <a href="{% url "en_construccion" %}" class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Voluntarios
-
-                            </a>
-                            <a href="{% url "en_construccion" %}" class="btn btn-lg btn-secondary mt-3 mt-md-4 px-4">Aprende Mas</a>
+                            <a href="{% url "voluntario" %}" class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Voluntarios</a>
+                            <a href="{% url "voluntarios" %}" class="btn btn-lg btn-secondary mt-3 mt-md-4 px-4">Aprende Mas</a>
                         </div>
                     </div>
                 </div>
@@ -251,40 +252,14 @@
     {% endblock%}
    
     <!-- Booking Start -->
+    <br><br><br>
     <div class="container-fluid bg-light">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5">
-                    <div class="bg-primary py-5 px-4 px-sm-5">
-                        <form class="py-5">
-                            <div class="form-group">
-                                <input type="text" class="form-control border-0 p-4" placeholder="Tu nombre" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control border-0 p-4" placeholder="Tu email" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <div class="date" id="date" data-target-input="nearest">
-                                    <input type="text" class="form-control border-0 p-4 datetimepicker-input" placeholder="Tu fecha de nacimiento" data-target="#date" data-toggle="datetimepicker"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="time" id="time" data-target-input="nearest">
-                                    <input type="text" class="form-control border-0 p-4 datetimepicker-input" placeholder="Tu edad" data-target="#time" data-toggle="datetimepicker"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <select class="custom-select border-0 px-4" style="height: 47px;">
-                                    <option selected>Selecciona una ubicación</option>
-                                    <option value="1">Buenos Aires</option>
-                                    <option value="2">Capital Federal</option>
-                                    <option value="3">Córdoba</option>
-                                </select>
-                            </div>
-                            <div>
-                                <button class="btn btn-dark btn-block border-0 py-3" type="submit">Book Now</button>
-                            </div>
-                        </form>
+                    <div class="bg-primary py-5 px-10 px-sm-5">
+                        <img class="img-fluid w-100" src="{%static "img/team-3.jpg" %}" weidht="200px" alt=""><br>
+                       
                     </div>
                 </div>
                 <div class="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
@@ -354,13 +329,13 @@
             <div class="col-lg-5">
                 <div class="row px-3">
                     <div class="col-12 p-0">
-                        <img class="img-fluid w-100" src="img/about-1.jpg" alt="">
+                        <img class="img-fluid w-100" src="{%static "img/blog-1.jpg" %}" alt="">
                     </div>
-                    <div class="col-6 p-0">
-                        <img class="img-fluid w-100" src="img/about-2.jpg" alt="">
+                    <div class="col-12 p-0">
+                        <img class="img-fluid w-100" src="{%static "img/blog-3.jpg" %}" alt="">
                     </div>
-                    <div class="col-6 p-0">
-                        <img class="img-fluid w-100" src="img/about-3.jpg" alt="">
+                    <div class="col-12 p-0">
+                        <img class="img-fluid w-100" src="{%static "img/blog-2.jpg" %}" alt="">
                     </div>
                 </div>
             </div>
