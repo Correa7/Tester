@@ -1,0 +1,181 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia%}
+
+<div class="container py-5">
+    <div class="row py-5">
+        <div class="col-lg-7 pb-5 pb-lg-0 px-3 px-lg-5">
+            <h4 class="text-secondary mb-3">Sobre nosotros</h4>
+            <h1 class="display-4 mb-4"><span class="text-primary">Voluntariado</span> & <span class="text-secondary">Adopción</span></h1>
+            <h5 class="text-muted mb-3">Amet stet amet ut. Sit no vero vero no dolor. Sed erat ut sea. Just clita ut stet kasd at diam sit erat vero sit.</h5>
+            <p class="mb-4">Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
+            <ul class="list-inline">
+                <li><h5><i class="fa fa-check-double text-secondary mr-3"></i>Ayudando a perros y gatos callejeros</h5></li>
+                <li><h5><i class="fa fa-check-double text-secondary mr-3"></i>Servicios de emergencia asociados</h5></li>
+                <li><h5><i class="fa fa-check-double text-secondary mr-3"></i>Sumate!</h5></li>
+            </ul>
+
+        </div>
+        <div class="col-lg-5">
+            <div class="row px-3">
+                <div class="col-12 p-0">
+                    <img class="img-fluid w-100" src="{%static "img/blog-1.jpg" %}" alt="">
+                </div>
+                <div class="col-12 p-0">
+                    <img class="img-fluid w-100" src="{%static "img/blog-3.jpg" %}" alt="">
+                </div>
+                <div class="col-12 p-0">
+                    <img class="img-fluid w-100" src="{%static "img/blog-2.jpg" %}" alt="">
+                </div>
+            </div>
+        </div>
+
+ 
+
+
+        <article>
+
+            {% if request.user.is_staff %}
+               
+            <div align="center">
+                {% if refugio.RefugioProf %}
+            <a href="{% url "edit-profile-refugio" refugio.RefugioProf.id %}" class="btn  btn-secondary mt-1 mt-md-2 px-2" align="center">editar perfil</a>
+            <a href="{% url "eliminar-profile-refugio" refugio.RefugioProf.id %}" class="btn  btn-secondary mt-1 mt-md-2 px-2" align="center">eliminar perfil</a>
+                {%endif%}
+            </div>
+            {%endif%}
+            <br>
+            <br>
+            <br>
+                <div style="margin-left:50px;margin-right:15px;width:850px" align="justify">
+            <h2>QUIENES SOMOS</h2>
+            {% if refugio.RefugioProf.image_1 %}
+            
+                <img src="{{refugio.RefugioProf.image_1.url}}" width="280" hspace="20" align="right">
+                {%else%}
+                {%endif%}
+            
+                <br>
+                {% if refugio.RefugioProf.description %}
+                <p> {{refugio.RefugioProf.description}} </p>
+                {%else%}
+                {%endif%}
+                <p>
+                    
+            "Somos una Asociación sin fines de lucro, que desde hace muchos años nos dedicamos a la 
+            
+            protección, la recuperación y a darle refugio a los animales en riesgo. Nuestro refugio histórico 
+            
+            está ubicado en la Provincia de Buenos Aires, en la localidad de José C. Paz y alberga 
+            
+            actualmente a 500 perros y 70 gatitos. Además damos asistencia a los animales de la zona, con 
+            
+            dueños de bajos recursos o carenciados.&nbsp;<br><br>
+            
+            En el año 2010 nos hicimos cargo del refugio municipal de General Rodriguez (los ex- mapa 
+            
+            conocidos como "Los Rodriguitos"). Ellos suman en total 300 perros, que serían cientos más 
+            
+            sin el trabajo de difusión que realizamos solicitando y dando en adopción, a los animales allí 
+            
+            alojados, dado que el Municipio de la zona lleva permanentemente al predio, animales sin 
+            
+            esterilizar y con todo tipo de patologías o callejeros de los que también nos hacemos cargo.&nbsp;<br><br>
+            {% if refugio.RefugioProf.image_4%}
+            <img src="{{refugio.RefugioProf.image_4.url}}" width="280"hspace="20" align="left">
+            {%else%}
+            {%endif%}
+            <br>
+            
+            No contamos con subsidios, ni padrinazgos, solo contamos con la ayuda de quienes conociendo 
+            
+            nuestra tarea y en especial a los Roqueritos y Rodriguitos, nos ayudan de forma eventual o 
+            
+            haciéndose socios por una suma mensual que ellos deciden, por eso para nosotros es tan 
+            
+            importante tu colaboración, tu participación y la difusión que puedas brindarle a nuestra labor 
+            
+            y causa, dado que sin ayuda, se nos hace muy difícil seguir adelante.
+            <br><br><br>
+            {% if refugio.RefugioProf.image_2 %}
+            <img src="{{refugio.RefugioProf.image_2.url}}" width="280" hspace="20" align="right">
+            {%else%}
+            {%endif%}
+            Nuestra tarea diaria es la atención y recuperación de los animalitos que llegan a nuestro 
+            
+            Refugio. Contamos para ellos con un consultorio veterinario y con dos profesionales que 
+            
+            atienden no sólo a nuestros refugiados, sino también a los animales enfermos de vecinos 
+            
+            carenciados, o sin recursos. Una vez recuperados tratamos de conseguirles hogares 
+            
+            adoptivos responsables. 
+            <br><br>
+            <br><br>
+            <br><br>
+            {% if refugio.RefugioProf.image_3 %}
+            <img src="{{refugio.RefugioProf.image_3.url}}" width="200" hspace="20" align="left">
+            {%else%}
+            {%endif%}
+            <b>
+            INFO ADICIONAL:
+            </b><br>
+            El estado de los animales alojados, y el del Refugio mereció la aprobación del Ministerio de 
+            
+            Asuntos Agrarios de la provincia de Buenos Aires que lo habilitó legalmente al igual que al 
+            
+            consultorio veterinario. A su vez la municipalidad de José C. Paz nos declaró Entidad de 
+            
+            Bién Público.
+            </p>
+            <p></p><br>
+                 <br><br><br>
+               
+            
+            <br><center>
+            
+            </center></div>
+            </article>
+
+
+
+
+
+
+    </div>
+</div>
+<div class="container py-5">
+    <div class="row py-5">
+        <div class="col-lg-7 pb-5 pb-lg-0 px-3 px-lg-5">
+            <h4 class="text-secondary mb-3">Sobre nosotros</h4>
+            <h1 class="display-4 mb-4"><span class="text-primary">Voluntariado</span> & <span class="text-secondary">Adopción</span></h1>
+            <h5 class="text-muted mb-3">Amet stet amet ut. Sit no vero vero no dolor. Sed erat ut sea. Just clita ut stet kasd at diam sit erat vero sit.</h5>
+            <p class="mb-4">Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
+            <ul class="list-inline">
+                <li><h5><i class="fa fa-check-double text-secondary mr-3"></i>Ayudando a perros y gatos callejeros</h5></li>
+                <li><h5><i class="fa fa-check-double text-secondary mr-3"></i>Servicios de emergencia asociados</h5></li>
+                <li><h5><i class="fa fa-check-double text-secondary mr-3"></i>Sumate!</h5></li>
+            </ul>
+
+        </div>
+        <div class="col-lg-5">
+            <div class="row px-3">
+                <div class="col-12 p-0">
+                    <img class="img-fluid w-100" src="{%static "img/blog-1.jpg" %}" alt="">
+                </div>
+                <div class="col-12 p-0">
+                    <img class="img-fluid w-100" src="{%static "img/blog-3.jpg" %}" alt="">
+                </div>
+                <div class="col-12 p-0">
+                    <img class="img-fluid w-100" src="{%static "img/blog-2.jpg" %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{%endblock%}

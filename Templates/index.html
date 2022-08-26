@@ -111,7 +111,7 @@
                     {% if request.user.is_staff %}
 
                     <a href="{% url "index" %}" class="nav-item nav-link active">Inicio</a>
-                    <a href="{% url "en_construccion" %}" class="nav-item nav-link">Abaut</a>
+                    <a href="{% url "about" %}" class="nav-item nav-link">About</a>
                    
                     
                     <div class="nav-item dropdown">
@@ -143,7 +143,7 @@
                     {% else %}
 
                     <a href="{% url "index" %}" class="nav-item nav-link active">Inicio</a>
-                    <a href="{% url "en_construccion" %}" class="nav-item nav-link">Abaut</a>
+                    <a href="{% url "about" %}" class="nav-item nav-link">About</a>
                     <a href="{% url "lista-mascota" %}" class="nav-item nav-link">Mascotas</a>
                     
                     <a href="{% url "lista-refugio" %}" class="nav-item nav-link">Refugios</a>
@@ -324,7 +324,7 @@
                     <li><h5><i class="fa fa-check-double text-secondary mr-3"></i>Servicios de emergencia asociados</h5></li>
                     <li><h5><i class="fa fa-check-double text-secondary mr-3"></i>Sumate!</h5></li>
                 </ul>
-                <a href="" class="btn btn-lg btn-primary mt-3 px-4">Conoce más</a>
+  
             </div>
             <div class="col-lg-5">
                 <div class="row px-3">
@@ -357,7 +357,7 @@
                         <h3 class="flaticon-house display-3 font-weight-normal text-secondary mb-3"></h3>
                         <h3 class="mb-3">Rescate de animales</h3>
                         <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet, diam sea est magna diam eos, rebum sit vero stet ipsum justo</p>
-                        <a class="text-uppercase font-weight-bold" href="">Read More</a>
+                
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4">
@@ -365,7 +365,7 @@
                         <h3 class="flaticon-food display-3 font-weight-normal text-secondary mb-3"></h3>
                         <h3 class="mb-3">Adopción de mascotas</h3>
                         <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet, diam sea est magna diam eos, rebum sit vero stet ipsum justo</p>
-                        <a class="text-uppercase font-weight-bold" href="">Read More</a>
+                      
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4">
@@ -373,7 +373,7 @@
                         <h3 class="flaticon-grooming display-3 font-weight-normal text-secondary mb-3"></h3>
                         <h3 class="mb-3">Entrenamiento de animales</h3>
                         <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet, diam sea est magna diam eos, rebum sit vero stet ipsum justo</p>
-                        <a class="text-uppercase font-weight-bold" href="">Read More</a>
+                        
                     </div>
                 </div>
             </div>
@@ -473,7 +473,7 @@
             <div class="owl-carousel testimonial-carousel">
                 <div class="bg-white mx-3 p-4">
                     <div class="d-flex align-items-end mb-3 mt-n4 ml-n4">
-                        <img class="img-fluid" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;" alt="">
+                        <img class="img-fluid" src="{% static "img/testimonial-1.jpg" %}" style="width: 80px; height: 80px;" alt="">
                         <div class="ml-3">
                             <h5>Adoptante: Julián Álvarez</h5>
                             <i>Adoptada: Nala</i>
@@ -483,7 +483,7 @@
                 </div>
                 <div class="bg-white mx-3 p-4">
                     <div class="d-flex align-items-end mb-3 mt-n4 ml-n4">
-                        <img class="img-fluid" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;" alt="">
+                        <img class="img-fluid" src="{% static "img/testimonial-2.jpg" %}" style="width: 80px; height: 80px;" alt="">
                         <div class="ml-3">
                             <h5>Adoptante: Tomás Uri</h5>
                             <i>Adoptado: Rocky</i>
@@ -493,7 +493,7 @@
                 </div>
                 <div class="bg-white mx-3 p-4">
                     <div class="d-flex align-items-end mb-3 mt-n4 ml-n4">
-                        <img class="img-fluid" src="img/testimonial-3.jpg" style="width: 80px; height: 80px;" alt="">
+                        <img class="img-fluid" src="{% static "img/testimonial-3.jpg" %}" style="width: 80px; height: 80px;" alt="">
                         <div class="ml-3">
                             <h5>Adoptante: Luca Gior</h5>
                             <i>Adoptada: Lola</i>
@@ -519,37 +519,34 @@
                         <h5 class="text-primary mb-4">Contáctanos</h5>
                         <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
                         <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
-                        <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+                        <p><i class="fa fa-envelope mr-2"></i>home.salvando.patitas@gmail.com</p>
                         <div class="d-flex justify-content-start mt-4">
-                            <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></a>
+                            <p class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-twitter"></i></p>
+                            <p class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-facebook-f"></i></p>
+                            
+                            <p class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></p>
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">
                         <h5 class="text-primary mb-4">Popular Links</h5>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Inicio</a>
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Sobre nosotros</a>
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Nuestra misión</a>
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Nuestro equipo</a>
-                            <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contáctanos</a>
+                            <a class="text-white mb-2" href="{% url "index" %}"><i class="fa fa-angle-right mr-2"></i>Inicio</a>
+                            <a class="text-white mb-2" href= "{% url "about" %}" ><i class="fa fa-angle-right mr-2"></i>Sobre nosotros</a>
+                            <a class="text-white mb-2" href= "{% url "presentacion" %}" ><i class="fa fa-angle-right mr-2"></i>Nuestra misión</a>
+                            <a class="text-white mb-2" href= "{% url "about" %}" ><i class="fa fa-angle-right mr-2"></i>Nuestro equipo</a>
+                            <p class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contáctanos</p>
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">
                         <h5 class="text-primary mb-4">Newsletter</h5>
-                        <form action="">
-                            <div class="form-group">
-                                <input type="text" class="form-control border-0" placeholder="Tu nombre" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control border-0" placeholder="Tu email" required="required" />
-                            </div>
-                            <div>
-                                <button class="btn btn-lg btn-primary btn-block border-0" type="submit">Enviar</button>
-                            </div>
-                        </form>
+                        <form action= " " method ="POST" class="py-5">  {% csrf_token %}
+
+                            <p style="font-size:18px ;">{{ form.nombre }}</p><br>
+                            <p style="font-size:18px ;">{{ form.email }}</p><br>
+                          
+                                <input class="btn btn-lg btn-primary btn-block border-0" type="submit" name="mail">
+                          
+                        </form> 
                     </div>
                 </div>
             </div>
@@ -560,22 +557,22 @@
             <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
                 <p class="m-0 text-white">
                     &copy; <a class="text-white font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed by
-                    <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
+                    <p class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</p>
                 </p>
             </div>
             <div class="col-md-6 text-center text-md-right">
                 <ul class="nav d-inline-flex">
                     <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="#">Privacidad</a>
+                        <p class="nav-link text-white py-0" href="#">Privacidad</p>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="#">Términos</a>
+                        <p class="nav-link text-white py-0" href="#">Términos</p>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="#">FAQs</a>
+                        <p class="nav-link text-white py-0" href="#">FAQs</p>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="#">Ayuda</a>
+                        <p class="nav-link text-white py-0" href="#">Ayuda</p>
                     </li>
                 </ul>
             </div>
