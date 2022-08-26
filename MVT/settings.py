@@ -124,8 +124,8 @@ MEDIA_ROOT = BASE_DIR / "Media"
 
 EMAIL_HOST = 'smtp.googlemail.com'
 EMAIL_HOST_USER = 'home.salvando.patitas@gmail.com'
-EMAIL_HOST_PASSWORD = 'rzhnmbgzusdjhmgy'
-EMAIL_PORT = 587
+EMAIL_HOST_PASSWORD = 'pceywxyyphhsruwj'
+EMAIL_PORT = "587"
 EMAIL_USE_TLS= True
 
 # Default primary key field type

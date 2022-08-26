@@ -70,7 +70,7 @@
         </div>
         <div class="row py-3 px-lg-5">
             <div class="col-lg-4">
-                <a href="" class="navbar-brand d-none d-lg-block">
+                <a href="{% url "index" %}" class="navbar-brand d-none d-lg-block">
                     <h1 class="m-0 display-5 text-capitalize"><span class="text-primary">Salvando</span>Patitas</h1>
                 </a>
             </div>
@@ -111,9 +111,9 @@
 
                     <a href="{% url "index" %}" class="nav-item nav-link active">Inicio</a>
 
-                    <a href="{% url "about" %}" class="nav-item nav-link">About</a>
+                   
 
-                    <a href="{% url "en_construccion" %}" class="nav-item nav-link">Sobre nosotros</a>
+                    <a href="{% url "about" %}" class="nav-item nav-link">Sobre nosotros</a>
 
                    
                    
@@ -147,9 +147,9 @@
 
                     <a href="{% url "index" %}" class="nav-item nav-link active">Inicio</a>
 
-                    <a href="{% url "about" %}" class="nav-item nav-link">About</a>
+                   
 
-                    <a href="{% url "en_construccion" %}" class="nav-item nav-link">Sobre nosotros</a>
+                    <a href="{% url "about" %}" class="nav-item nav-link">Sobre nosotros</a>
 
                     <a href="{% url "lista-mascota" %}" class="nav-item nav-link">Mascotas</a>
                     <a href="{% url "lista-refugio" %}" class="nav-item nav-link">Refugios</a>
@@ -176,7 +176,7 @@
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="{% url "perfil" %}" class="dropdown-item">Mi perfil</a>
                            
-                            <a href="{% url "logout" %}" class="dropdown-item">Cerrar sesión</a>
+                            <a href="{% url "logout" %}" class="dropdown-item">Logout</a>
                         </div>
     
                         {% else %}
@@ -190,13 +190,13 @@
                             <a href="{% url "crear-profile" %}" class="dropdown-item">Crea tu Perfil</a>
                             <a href="{% url "eliminar-usuario" user.id %}" class="dropdown-item">Eliminar Usuario</a>
                             
-                            <a href="{% url "logout" %}" class="dropdown-item">Cerrar sesión</a>
+                            <a href="{% url "logout" %}" class="dropdown-item">Logout</a>
                         </div>
                         {% endif%}
                 </div>
                 {% else %}
 
-                <a href="{% url "login" %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block"style ="padding:1px;margin-rigth:8px; border-color:black ;">Iniciar sesión</a>
+                <a href="{% url "login" %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block"style ="padding:1px;margin-rigth:8px; border-color:black ;">Login</a>
                 <a href="{% url "register" %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block"style ="padding:1px;margin-rigth:8px;border-color:black">Registrarse</a>
 
                 {%endif%}

@@ -70,7 +70,7 @@
         </div>
         <div class="row py-3 px-lg-5">
             <div class="col-lg-4">
-                <a href="" class="navbar-brand d-none d-lg-block">
+                <a href="{% url "index" %}" class="navbar-brand d-none d-lg-block">
                     <h1 class="m-0 display-5 text-capitalize"><span class="text-primary">Salvando</span>Patitas</h1>
                 </a>
             </div>
@@ -111,11 +111,11 @@
                     {% if request.user.is_staff %}
 
                     <a href="{% url "index" %}" class="nav-item nav-link active">Inicio</a>
-<<<<<<< HEAD
-                    <a href="{% url "about" %}" class="nav-item nav-link">About</a>
-=======
-                    <a href="{% url "en_construccion" %}" class="nav-item nav-link">Sobre nosotros</a>
->>>>>>> b034a9e046d51e43e026489291ae4fee8a47bb7f
+
+                    <a href="{% url "about" %}" class="nav-item nav-link">Sobre nosotros</a>
+
+                    
+
                    
                     
                     <div class="nav-item dropdown">
@@ -133,7 +133,7 @@
                             <a href="{% url "lista-refugio" %}" class="dropdown-item">Refugios</a>
                             <a href="{% url "ficha-refugio" %}" class="dropdown-item">Cargar Refugio</a>
                             <a href="{% url "crear-profile-refugio" %}" class="dropdown-item">Cargar Perfil Refugio</a>
-                            <a href="{% url "ficha-busqueda-refugio"%}" class="dropdown-item">Buscar Refugio</a>
+                            <a href="{% url "ficha-busqueda-refugio" %}" class="dropdown-item">Buscar Refugio</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -147,8 +147,8 @@
                     {% else %}
 
                     <a href="{% url "index" %}" class="nav-item nav-link active">Inicio</a>
-                    <a href="{% url "about" %}" class="nav-item nav-link">About</a>
-                    <a href="{% url "en_construccion" %}" class="nav-item nav-link">Sobre nosotros</a>
+                    <a href="{% url "about" %}" class="nav-item nav-link">Sobre nosotros</a>
+                   
 
                     <a href="{% url "lista-mascota" %}" class="nav-item nav-link">Mascotas</a>
                     
@@ -166,41 +166,42 @@
                 {% if request.user.is_authenticated %}
                 <!-- <a href="{% url "en_construccion" %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Haz una donación!</a> -->
                 
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
 
-                    {% if user.profile.image %}
+                        {% if user.profile.image %}
 
-                    <img src="{{user.profile.image.url}}" , style="border-radius: 50% ;" width="40px", height="40px" >
+                        <img src="{{user.profile.image.url}}" , style="border-radius: 50% ;" width="40px", height="40px" >
 
-                    <div class="dropdown-menu rounded-0 m-0">
-                        <a href="{% url "perfil" %}" class="dropdown-item">Mi perfil</a>
-                    
-                    
-                        <a href="{% url "logout" %}" class="dropdown-item">Cerrar sesión</a>
-                    </div>
-
-                    {% else %}
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="{% url "perfil" %}" class="dropdown-item">Mi perfil</a>
                         
-                        <img src="{% static "img\perfil-empty.png" %}" , border-radius="50%", width="40px", height="40px" >
-                    
-                    
-                    </a>
-                    <div class="dropdown-menu rounded-0 m-0">
-                       
-                        <a href="{% url "crear-profile" %}" class="dropdown-item">Crea tu Perfil</a>
-                        <a href="{% url "eliminar-usuario" user.id%}" class="dropdown-item">Eliminar Usuario</a>
-                        <a href="{% url "logout" %}" class="dropdown-item">Cerrar sesión</a>
+                        
+                            <a href="{% url "logout" %}" class="dropdown-item">Logout</a>
+                        </div>
+
+                        {% else %}
+                            
+                            <img src="{% static "img\perfil-empty.png" %}" , border-radius="50%", width="40px", height="40px" >
+                        
+                        
+                        </a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                        
+                            <a href="{% url "crear-profile" %}" class="dropdown-item">Crea tu Perfil</a>
+                            <a href="{% url "eliminar-usuario" user.id%}" class="dropdown-item">Eliminar Usuario</a>
+                            <a href="{% url "logout" %}" class="dropdown-item">logout</a>
+                        </div>
+                        {% endif%}
+                        
                     </div>
-                    {% endif%}
-                </div>
 
 
 
                 {% else %}
 
-                <a href="{% url "login" %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block"style ="padding:1px;margin-rigth:8px; border-color:black ;">Iniciar sesión</a>
-                <a href="{% url "register" %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block"style ="padding:1px;margin-rigth:8px;border-color:black">Registrate</a>
+                    <a href="{% url "login" %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block"style ="padding:1px;margin-rigth:8px; border-color:black ;">Login</a>
+                    <a href="{% url "register" %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block"style ="padding:1px;margin-rigth:8px;border-color:black">Registrate</a>
 
                 {%endif%}
                 
@@ -222,7 +223,7 @@
                             <h1 class="display-3 text-white mb-3">Haz Feliz a una Mascota</h1>
                             <h5 class="text-white mb-3 d-none d-sm-block">Muchos animales estan a la espera de un hogar</h5>
                             <a href="{% url "lista-mascota" %}" class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Mascotas</a>
-                            <a href="{% url "en_construccion" %}" class="btn btn-lg btn-secondary mt-3 mt-md-4 px-4">Aprende mas</a>
+                            <a href="{% url "news-letter" %}" class="btn btn-lg btn-secondary mt-3 mt-md-4 px-4">Aprende mas</a>
                         </div>
                     </div>
                 </div>
@@ -233,8 +234,16 @@
                             <h3 class="text-white mb-3 d-none d-sm-block">No Compres, Adopta!</h3>
                             <h1 class="display-3 text-white mb-3">Participa, las mascotas te necesitan!</h1>
                             <h5 class="text-white mb-3 d-none d-sm-block">Sumate a la causa: Se Voluntario de uno de nuestros Refugios.</h5>
-                            <a href="{% url "voluntario" %}" class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Voluntarios</a>
-                            <a href="{% url "voluntarios" %}" class="btn btn-lg btn-secondary mt-3 mt-md-4 px-4">Aprende Mas</a>
+                            
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url "voluntario" %}" class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Se un Voluntario</a>
+                             {% else %}
+                             <a href="{% url "requerimiento" %}" class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Se un Voluntario</a>
+                            {% endif %}
+
+                            
+                            
+                            <a href="{% url "news-letter" %}" class="btn btn-lg btn-secondary mt-3 mt-md-4 px-4">Aprende Mas</a>
                         </div>
                     </div>
                 </div>
@@ -528,10 +537,10 @@
                         <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
                         <p><i class="fa fa-envelope mr-2"></i>home.salvando.patitas@gmail.com</p>
                         <div class="d-flex justify-content-start mt-4">
-                            <p class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-twitter"></i></p>
-                            <p class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-facebook-f"></i></p>
+                            <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="https://twitter.com/"><i class="fab fa-twitter" target="_blank"></i></a>
+                            <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="https://www.facebook.com/"><i class="fab fa-facebook-f" target="_blank"></i></a>
                             
-                            <p class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></p>
+                            <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="https://www.instagram.com/"><i class="fab fa-instagram" target="_blank"></i></a>
                         </div>
                     </div>
                     <div class="col-md-3 mb-5">
@@ -544,17 +553,7 @@
                             <p class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contáctanos</p>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-5">
-                        <h5 class="text-primary mb-4">Newsletter</h5>
-                        <form action= " " method ="POST" class="py-5">  {% csrf_token %}
-
-                            <p style="font-size:18px ;">{{ form.nombre }}</p><br>
-                            <p style="font-size:18px ;">{{ form.email }}</p><br>
-                          
-                                <input class="btn btn-lg btn-primary btn-block border-0" type="submit" name="mail">
-                          
-                        </form> 
-                    </div>
+                   
                 </div>
             </div>
         </div>

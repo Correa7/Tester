@@ -33,8 +33,11 @@ Listado de mascotas
 
                     <a href="{% url "detalle-mascota" mascota.id %}"  class="btn btn-primary">Detalle</a>
                     <br>
+                    {% if request.user.is_authenticated %}
                     <a href="{% url "adopcion" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Adoptame</a>
-                
+                    {% else %}
+                    <a href="{% url "requerimiento" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Adoptame</a>
+                    {% endif%}
                 </div>
             </div>
 

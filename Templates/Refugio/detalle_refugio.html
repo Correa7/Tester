@@ -39,7 +39,14 @@ Listado de mascotas
                         <h3 class="flaticon-grooming display-3 font-weight-normal text-secondary mb-3"></h3>
                         <img src="{{refugio.logo.url}}", border-radius= 50%, width="180px" height="180px
                         "><br>
-                        <a href="{% url "voluntario" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Postulate a voluntario aqui</a>
+
+                        
+                        {% if request.user.is_authenticated %}
+                    <a href="{% url "voluntario" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Se un Voluntario</a>
+                    {% else %}
+                    <a href="{% url "requerimiento" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Se un Voluntario</a>
+                    {% endif %}
+                    
                     </div>
                 </div>
 

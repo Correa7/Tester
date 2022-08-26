@@ -3,7 +3,7 @@ from django.conf import settings
 from django.template.loader import get_template
 from django.core.mail import EmailMultiAlternatives
 from django.contrib.auth.decorators import login_required
-from .forms import adopcionForm, VoluntarioForm, donacionForm
+from .forms import adopcionForm, VoluntarioForm, donacionForm, newsForm
 
 # Create your views here.
 
@@ -166,4 +166,54 @@ def form_donar(request):
 ################################################################
 
 
+
+def send_newsletter(mail):
+
+    context= {"mail": mail}
+    template = get_template("SendMail/correo_adopcion.html")
+    content = template.render(context)
+    email = EmailMultiAlternatives(
+        "Newsletter",
+        "Noticias Salvando Patitas",
+        settings.EMAIL_HOST_USER,
+        [mail],
+    )
+
+    email.attach_alternative(content,"Text/html")
+    email.send()
+    return redirect ("inicio")
+
+
+
+
+def form_newsletter(request):
+
+    if request.method == "POST":
+
+        form = newsForm(request.POST)
+    
+        if form.is_valid():
+
+            nombre= form.cleaned_data["nombre"]
+            email= form.cleaned_data["email"]
+            print(email)
+
+            mail = request.POST.get("email")
+
+            print(mail)
+
+            send_newsletter(mail)
+    
+        #     respuesta= f"Felicidades has completado el primer paso para Adoptar una mascota, no olvides revisar tu casilla de correos para continuar con la postulacion"
+
+        # return render (request, "inicio.html", {"respuesta":respuesta})
+        return redirect ("index")
+
+
+    else:
+     
+        form= newsForm ()
+     
+    return render (request, "SendMail/form_newsletter.html", {"form":form})
+    
 

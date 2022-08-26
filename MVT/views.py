@@ -20,8 +20,8 @@ from .forms import  newsForm
 def padre (request):
     return render (request, "padre.html")
 
-# def index (request):
-#     return render (request, "index.html")
+def index (request):
+    return render (request, "index.html")
 
 def inicio (request):
     return render(request, "inicio.html")
@@ -40,6 +40,9 @@ def presentacion (request):
 
 def voluntarios (request):
     return render (request, "voluntarios.html")
+
+def requerimiento (request):
+    return render (request, "requerimiento.html")
 
 
 ##############################################################
@@ -61,7 +64,7 @@ def send_index(mail):
     email.send()
     return redirect ("inicio")
 
-@login_required
+# @login_required
 
 def form_index(request):
 
