@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from MVT.views import index, padre, inicio, en_construccion, voluntarios
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
     path("", index, name="index"),
     path("padre/", padre, name="padre"),
     path("inicio/", inicio, name="inicio"),
@@ -16,4 +16,5 @@ urlpatterns = [
     path("Veterinaria/", include("Apps.Veterinaria.urls")),
     path("User/", include("Apps.User.urls")),
     path("SendMail/", include("Apps.SendMail.urls")),
+    path("Legales/",include("Apps.Legales.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
