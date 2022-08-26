@@ -9,7 +9,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", form_index, name="index"),
     path("admin/", admin.site.urls),
-   
     path("padre/", padre, name="padre"),
     path("inicio/", inicio, name="inicio"),
     path("en-construccion/", en_construccion, name="en_construccion"),
