@@ -41,28 +41,28 @@
         <div class="row bg-secondary py-2 px-lg-5">
             <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center">
-                    <a class="text-white pr-3" href="">FAQs</a>
+                    <a class="text-white pr-3" href="{% url "preguntas-frecuentes" %}">FAQs</a>
                     <span class="text-white">|</span>
-                    <a class="text-white px-3" href="">Ayuda</a>
+                    <a class="text-white px-3" href="{% url "terminos-condiciones" %}">Términos y condiciones</a>
                     <span class="text-white">|</span>
-                    <a class="text-white pl-3" href="">Soporte</a>
+                    <a class="text-white pl-3" href="{% url "politica-privacidad" %}">Política de privacidad</a>
                 </div>
             </div>
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
-                    <a class="text-white px-3" href="">
+                    <a class="text-white px-3" href="https://www.facebook.com/" target="_blank">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a class="text-white px-3" href="">
+                    <a class="text-white px-3" href="https://twitter.com/" target="_blank">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a class="text-white px-3" href="">
+                    <a class="text-white px-3" href="https://www.linkedin.com/" target="_blank">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a class="text-white px-3" href="">
+                    <a class="text-white px-3" href="https://www.instagram.com/" target="_blank">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a class="text-white pl-3" href="">
+                    <a class="text-white pl-3" href="https://www.youtube.com/" target="_blank">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </div>
@@ -111,7 +111,11 @@
                     {% if request.user.is_staff %}
 
                     <a href="{% url "index" %}" class="nav-item nav-link active">Inicio</a>
+<<<<<<< HEAD
                     <a href="{% url "about" %}" class="nav-item nav-link">About</a>
+=======
+                    <a href="{% url "en_construccion" %}" class="nav-item nav-link">Sobre nosotros</a>
+>>>>>>> b034a9e046d51e43e026489291ae4fee8a47bb7f
                    
                     
                     <div class="nav-item dropdown">
@@ -144,6 +148,8 @@
 
                     <a href="{% url "index" %}" class="nav-item nav-link active">Inicio</a>
                     <a href="{% url "about" %}" class="nav-item nav-link">About</a>
+                    <a href="{% url "en_construccion" %}" class="nav-item nav-link">Sobre nosotros</a>
+
                     <a href="{% url "lista-mascota" %}" class="nav-item nav-link">Mascotas</a>
                     
                     <a href="{% url "lista-refugio" %}" class="nav-item nav-link">Refugios</a>
@@ -171,7 +177,7 @@
                         <a href="{% url "perfil" %}" class="dropdown-item">Mi perfil</a>
                     
                     
-                        <a href="{% url "logout" %}" class="dropdown-item">Logout</a>
+                        <a href="{% url "logout" %}" class="dropdown-item">Cerrar sesión</a>
                     </div>
 
                     {% else %}
@@ -184,7 +190,7 @@
                        
                         <a href="{% url "crear-profile" %}" class="dropdown-item">Crea tu Perfil</a>
                         <a href="{% url "eliminar-usuario" user.id%}" class="dropdown-item">Eliminar Usuario</a>
-                        <a href="{% url "logout" %}" class="dropdown-item">Logout</a>
+                        <a href="{% url "logout" %}" class="dropdown-item">Cerrar sesión</a>
                     </div>
                     {% endif%}
                 </div>
@@ -193,8 +199,8 @@
 
                 {% else %}
 
-                <a href="{% url "login" %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block"style ="padding:3px;margin-rigth:10px; border-color:black ;">login</a>
-                <a href="{% url "register" %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block"style ="padding:3px;margin-rigth:10px;border-color:black">Registrate</a>
+                <a href="{% url "login" %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block"style ="padding:1px;margin-rigth:8px; border-color:black ;">Iniciar sesión</a>
+                <a href="{% url "register" %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block"style ="padding:1px;margin-rigth:8px;border-color:black">Registrate</a>
 
                 {%endif%}
                 
@@ -399,10 +405,10 @@
                             <i>Fundador & CEO</i>
                         </div>
                         <div class="team-social d-flex align-items-center justify-content-center bg-dark">
-                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-primary rounded-circle text-center px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-primary rounded-circle text-center px-0" style="width: 36px; height: 36px;" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -416,10 +422,10 @@
                             <i>Gerente administrativo</i>
                         </div>
                         <div class="team-social d-flex align-items-center justify-content-center bg-dark">
-                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-primary rounded-circle text-center px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-primary rounded-circle text-center px-0" style="width: 36px; height: 36px;" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -433,10 +439,10 @@
                             <i>Gerente de veterinaria</i>
                         </div>
                         <div class="team-social d-flex align-items-center justify-content-center bg-dark">
-                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-primary rounded-circle text-center px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-primary rounded-circle text-center px-0" style="width: 36px; height: 36px;" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -450,10 +456,10 @@
                             <i>Una de nuestras voluntarias</i>
                         </div>
                         <div class="team-social d-flex align-items-center justify-content-center bg-dark">
-                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-primary rounded-circle text-center px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-primary rounded-circle text-center px-0" style="width: 36px; height: 36px;" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -515,9 +521,10 @@
             </div>
             <div class="col-lg-8 col-md-12">
                 <div class="row">
-                    <div class="col-md-4 mb-5">
+                    <div class="col-md-5 mb-5">
                         <h5 class="text-primary mb-4">Contáctanos</h5>
-                        <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
+
+                        <p><i class="fa fa-map-marker-alt mr-2"></i>1Buenos Aires, Argentina</p>
                         <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
                         <p><i class="fa fa-envelope mr-2"></i>home.salvando.patitas@gmail.com</p>
                         <div class="d-flex justify-content-start mt-4">
@@ -527,8 +534,8 @@
                             <p class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></p>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-5">
-                        <h5 class="text-primary mb-4">Popular Links</h5>
+                    <div class="col-md-3 mb-5">
+                        <h5 class="text-primary mb-4">Links frecuentes</h5>
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-white mb-2" href="{% url "index" %}"><i class="fa fa-angle-right mr-2"></i>Inicio</a>
                             <a class="text-white mb-2" href= "{% url "about" %}" ><i class="fa fa-angle-right mr-2"></i>Sobre nosotros</a>
@@ -556,23 +563,20 @@
         <div class="row">
             <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
                 <p class="m-0 text-white">
-                    &copy; <a class="text-white font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed by
-                    <p class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</p>
+                    &copy; <a class="text-white font-weight-bold" href="{% url "about" %}">Your Site Name</a>. All Rights Reserved. Designed by
+                    <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
                 </p>
             </div>
             <div class="col-md-6 text-center text-md-right">
                 <ul class="nav d-inline-flex">
                     <li class="nav-item">
-                        <p class="nav-link text-white py-0" href="#">Privacidad</p>
+                        <a class="nav-link text-white py-0" href="{% url "preguntas-frecuentes" %}">FAQs</a>
                     </li>
                     <li class="nav-item">
-                        <p class="nav-link text-white py-0" href="#">Términos</p>
+                        <a class="nav-link text-white py-0" href="{% url "terminos-condiciones" %}">Términos y condiciones</a>
                     </li>
                     <li class="nav-item">
-                        <p class="nav-link text-white py-0" href="#">FAQs</p>
-                    </li>
-                    <li class="nav-item">
-                        <p class="nav-link text-white py-0" href="#">Ayuda</p>
+                        <a class="nav-link text-white py-0" href="{% url "politica-privacidad" %}">Política de privacidad</a>
                     </li>
                 </ul>
             </div>

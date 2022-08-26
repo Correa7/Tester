@@ -8,6 +8,8 @@ from MVT.views import form_index, padre, inicio, en_construccion, about, present
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", form_index, name="index"),
+    path("admin/", admin.site.urls),
+   
     path("padre/", padre, name="padre"),
     path("inicio/", inicio, name="inicio"),
     path("en-construccion/", en_construccion, name="en_construccion"),
@@ -19,4 +21,5 @@ urlpatterns = [
     path("Veterinaria/", include("Apps.Veterinaria.urls")),
     path("User/", include("Apps.User.urls")),
     path("SendMail/", include("Apps.SendMail.urls")),
+    path("Legales/",include("Apps.Legales.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
