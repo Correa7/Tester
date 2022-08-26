@@ -1,9 +1,6 @@
 from django.db import models
 
 class Mascota (models.Model):
-
-
-    
     nickname = models.CharField(max_length= 50, unique=True)
     especie = models.CharField(max_length= 50)
     raza = models.CharField(max_length= 50)

@@ -8,8 +8,8 @@ from .models import Mascota
 sexos = [(' Macho',' Macho'),(' Hembra',' Hembra')]
 lista_especies = [(' Perro',' Perro'),(' Gato',' Gato')]
 
-class Mascota_form (forms.Form):
 
+class Mascota_form (forms.Form):
     nickname = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Ingrese texto'}))
     especie = forms.ChoiceField(choices=lista_especies,required=True,label='Seleccione la especie')
     raza = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Ingrese texto'}))
@@ -20,7 +20,6 @@ class Mascota_form (forms.Form):
     image = forms.ImageField(label='Imagen  ')
 
     class Meta:
-
         model = Mascota
         fields = (
             # 'nickname',
@@ -31,5 +30,4 @@ class Mascota_form (forms.Form):
             # "ingreso",
             # "observaciones",
             # "image",
-               
                )

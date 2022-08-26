@@ -1,4 +1,3 @@
-
 from django.http import HttpResponse
 import datetime
 from django.template import loader
@@ -9,29 +8,24 @@ from django.core.mail import EmailMultiAlternatives
 from django.contrib.auth.decorators import login_required
 from .forms import  newsForm 
 
-# Create your views here.
-
-
-
-
-
-
-
 def padre (request):
     return render (request, "padre.html")
+
 
 def index (request):
     return render (request, "index.html")
 
+
 def inicio (request):
     return render(request, "inicio.html")
+
 
 def en_construccion (request):
     return render (request, "en_construccion.html")
 
 
-def about (request):
-    return render (request, "about.html")
+def sobre_nosotros (request):
+    return render (request, "sobre_nosotros.html")
 
 
 def presentacion (request):
@@ -41,6 +35,7 @@ def presentacion (request):
 def voluntarios (request):
     return render (request, "voluntarios.html")
 
+
 def requerimiento (request):
     return render (request, "requerimiento.html")
 
@@ -49,7 +44,6 @@ def requerimiento (request):
 
 
 def send_index(mail):
-
     context= {"mail": mail}
     template = get_template("SendMail/correo_adopcion.html")
     content = template.render(context)

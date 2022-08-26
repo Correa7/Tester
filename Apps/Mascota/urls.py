@@ -9,5 +9,4 @@ urlpatterns = [
     path("buscar-mascota/",buscar_mascota,name="buscar-mascota"),
     path("lista-mascota/", lista_mascota , name="lista-mascota"),
     path("detalle-mascota/<int:pk>/", Detail_Mascota.as_view() , name="detalle-mascota"),
-
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

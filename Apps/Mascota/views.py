@@ -6,19 +6,11 @@ from Apps.Mascota.models import Mascota
 from Apps.Mascota.forms import Mascota_form
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
 
-
-
-
 def ficha_mascota (request):
-
     if request.method == "POST":
-
         form_mascotas = Mascota_form(request.POST, request.FILES)
-
         if form_mascotas.is_valid():
-
             # Mascota.objects.create(
-
             #         user = request.user,
             #         nickname = form_mascotas.cleaned_data['nickname'],
             #         especie = form_mascotas.cleaned_data['especie'],
@@ -29,22 +21,18 @@ def ficha_mascota (request):
             #         observaciones= form_mascotas.cleaned_data['observaciones'],
             #         image = form_mascotas.cleaned_data['image']
             #     )
-
             data = form_mascotas.cleaned_data
-
             ficha = Mascota(nickname = data['nickname'], especie = data['especie'],raza = data['raza'], sexo = data['sexo'],edad_aprox = data['edad_aprox'],ingreso = data['ingreso'], observaciones = data['observaciones'], image= data["image"],)
-            
             ficha = ficha.save()
-           
         return redirect ("lista-mascota")
-
     else:
         form_mascotas = Mascota_form()
-
     return render(request,'Mascota/ficha_mascotas.html',{"form_mascotas": form_mascotas})
+
 
 def busqueda_mascota (request):
     return render (request, "Mascota/ficha_busqueda_mascotas.html")
+
 
 def buscar_mascota (request):
     if request.GET["nickname"]:
@@ -56,16 +44,9 @@ def buscar_mascota (request):
     return render (request, "inicio.html", {"respuesta": respuesta})
 
 
-
 def lista_mascota (request):
-
     mascotas = Mascota.objects.all() #Trae todos
-
     return render(request, 'Mascota/lista_mascota.html',{'mascotas':mascotas})      
-
-
-
-
 
 
 class Detail_Mascota(DetailView):
