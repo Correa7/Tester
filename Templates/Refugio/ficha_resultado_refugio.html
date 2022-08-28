@@ -8,36 +8,59 @@
 
 {% block contenidoQueCambia%}
 
-<div style = "padding: 20px 40px;">
-    <h1>Resultados de búsqueda</h1>
-    <div style = "padding: 20px 80px;border-color: BLACK;border-width: 5px;border-style: solid;">
 
-<p>Estamos buscando el Refugio : {{nombre}} </p>
+<div class="container-fluid bg-light pt-5">
+    <div class="container py-5">
+        <div class="d-flex flex-column text-center mb-5">
+            <h4 class="text-secondary mb-3">Nuestra labor</h4>
+            <h1 class="display-4 m-0"><span class="text-primary">Refugios</span> encontrados!</h1>
+        </div>
+        <div class="row pb-3">
+        {% if fichas %}
 
-    {% if fichas %}
 
-        <ul>
+            {% for ficha in fichas %}
 
-            {%for ficha in fichas %}
-
-                <li> Nombre del Refugio: {{ficha.nombre}} </li>
-                <li> Telefono N°:{{ficha.telefono}} </li>
-                <li> E-mail: {{ficha.email}} </li>
-                <li> Direccion: {{ficha.direccion}} </li>
-                <br>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                    
+                    <h3 class="mb-3">{{ficha.nickname}}</h3><br>
+                    <img src="{{ficha.logo.url}}", style="border-radius: 50%; align-items: center;" width="180px" height="180px
+                    "><br>
+                    
+                    
+                    
+                    <li> Nombre: {{ficha.nombre}} </li>
+                    <li> Telefono N°:{{ficha.telefono}} </li>
+                 
+                    <br>
                 
-   
-            {% endfor %}
+                    <br>
 
-        </ul>
+                    <a href="{% url "detalle-refugio" ficha.id %}"  class="btn btn-primary">Detalle</a>
+                    <br>
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url "voluntario" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Adoptame</a>
+    
+                    {% else %}
+                    <a href="{% url "requerimiento" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Adoptame</a>
+                    {% endif%}
+                </div>
+            </div>
 
-    {% else %}
+            {% endfor%}
+        {% else %}
 
-    <p>No se encontro la Ficha</p>
+            <h2>No se encontro la Ficha</h2>
+    
+        {% endif %}   
 
-{% endif %}
+        </div>
     </div>
-
 </div>
+
+
+
+
 
 {% endblock %}

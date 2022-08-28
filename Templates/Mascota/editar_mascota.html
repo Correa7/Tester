@@ -1,0 +1,26 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    Editar Ficha de  mascota 
+{% endblock %}
+
+{% block contenidoQueCambia%}
+<div style="padding: 20px 40px;">
+
+    <h1>Editar  mascota</h1>
+    <form  method="POST" enctype="multipart/form-data" style="padding: 20px 80px;border-color: BLACK;border-width: 5px;border-style: solid;">
+        {% csrf_token %}
+
+       <table>
+
+         {{form.as_table}}
+      
+        </table> <br>
+
+        <input type="submit" value="Guardar cambios" class="btn  btn-primary mt-3 mt-md-2 px-2">
+
+    </form>
+</div>
+{% endblock %}

@@ -5,33 +5,27 @@ from django.template import loader
 from Apps.Mascota.models import Mascota
 from Apps.Mascota.forms import Mascota_form
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
+from django.views.generic.edit import UpdateView
 
 def ficha_mascota (request):
+
     if request.method == "POST":
-        form_mascotas = Mascota_form(request.POST, request.FILES)
-        if form_mascotas.is_valid():
-            # Mascota.objects.create(
-            #         user = request.user,
-            #         nickname = form_mascotas.cleaned_data['nickname'],
-            #         especie = form_mascotas.cleaned_data['especie'],
-            #         raza = form_mascotas.cleaned_data['raza'],
-            #         sexo = form_mascotas.cleaned_data['sexo'],
-            #         edad_aprox = form_mascotas.cleaned_data['edad_aprox'],
-            #         ingreso = form_mascotas.cleaned_data['ingreso'],
-            #         observaciones= form_mascotas.cleaned_data['observaciones'],
-            #         image = form_mascotas.cleaned_data['image']
-            #     )
-            data = form_mascotas.cleaned_data
+
+        form = Mascota_form(request.POST, request.FILES)
+
+        if form.is_valid():
+      
+            data = form.cleaned_data
             ficha = Mascota(nickname = data['nickname'], especie = data['especie'],raza = data['raza'], sexo = data['sexo'],edad_aprox = data['edad_aprox'],ingreso = data['ingreso'], observaciones = data['observaciones'], image= data["image"],)
+           
             ficha = ficha.save()
+
         return redirect ("lista-mascota")
     else:
-        form_mascotas = Mascota_form()
-    return render(request,'Mascota/ficha_mascotas.html',{"form_mascotas": form_mascotas})
+        
+        form = Mascota_form()
 
-
-def busqueda_mascota (request):
-    return render (request, "Mascota/ficha_busqueda_mascotas.html")
+    return render(request,'Mascota/ficha_mascotas.html',{"form" : form})
 
 
 def buscar_mascota (request):
@@ -54,4 +48,19 @@ class Detail_Mascota(DetailView):
     template_name = 'Mascota/detalle_mascota.html'
 
 
-   
+
+class Borrar_Mascota(DeleteView):
+
+    model = Mascota
+    template_name= 'Mascota/borrar_mascota.html'
+    success_url = '/Mascota/lista-mascota/'
+
+
+class Editar_Mascota(UpdateView):
+
+    model = Mascota
+    template_name = 'Mascota/editar_mascota.html'
+    fields = ["nickname","especie","raza","sexo","edad_aprox","ingreso","observaciones", "image"]
+    success_url = '/Mascota/lista-mascota/'
+
+  

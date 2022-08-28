@@ -23,3 +23,5 @@ class Ficha_form (forms.Form):
             "vacuna_2", "desparasitacion",
             "castracion","observaciones",
         )
+
+

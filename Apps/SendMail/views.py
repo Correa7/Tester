@@ -5,6 +5,8 @@ from django.core.mail import EmailMultiAlternatives
 from django.contrib.auth.decorators import login_required
 from .forms import adopcionForm, VoluntarioForm, donacionForm, newsForm
 
+
+
 def send_mascota(mail):
     context= {"mail": mail}
     template = get_template("SendMail/correo_adopcion.html")
@@ -31,7 +33,7 @@ def form_adopcion(request):
             mail = request.POST.get("email")
             print(mail)
             send_mascota(mail)    
-            respuesta= f"Felicidades has completado el primer paso para Adoptar una mascota, no olvides revisar tu casilla de correos para continuar con la postulacion"
+            respuesta= f"Felicidades has completado el primer paso para Adoptar una mascota, no olvides revisar tu casilla de correos para continuar con la adopción"
         return render (request, "inicio.html", {"respuesta":respuesta})
     else:     
         form= adopcionForm()     
@@ -74,7 +76,7 @@ def form_voluntario (request):
 
             send_voluntario(mail)
 
-            respuesta= f"Ya casi eres un Voluntario continua tu postulacion siguiendo las instrucciones del mail que te enviamos, no olvides revisar tu casilla de correos"
+            respuesta= f"Ya casi eres un Voluntario!!, continua tu postulacion siguiendo las instrucciones del mail que te enviamos, no olvides revisar tu casilla de correos"
 
         return render (request, "inicio.html", {"respuesta":respuesta})
     else:
@@ -113,7 +115,7 @@ def form_donar(request):
             print(mail)
             send_donar(mail)
     
-            respuesta= f"Gracias por confiar en nosotros, tu donacion nos ayuda a seguir creciendo, no olvides revisar tu casilla de correos para continuar con la postulacion"
+            respuesta= f"Muchas gracias, tu donacion nos ayuda a seguir creciendo, no olvides revisar tu casilla de correos para continuar con la postulacion"
 
         return render (request, "inicio.html", {"respuesta":respuesta})
     else:
@@ -158,10 +160,10 @@ def form_newsletter(request):
 
             send_newsletter(mail)
     
-        #     respuesta= f"Felicidades has completado el primer paso para Adoptar una mascota, no olvides revisar tu casilla de correos para continuar con la postulacion"
+            respuesta= f"Gracias por contactar con nosotros, en breve te llegara un correo con todas las novedades de Salvando Patitas"
 
-        # return render (request, "inicio.html", {"respuesta":respuesta})
-        return redirect ("index")
+        return render (request, "inicio.html", {"respuesta":respuesta})
+       
 
     else:
         form= newsForm ()

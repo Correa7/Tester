@@ -122,8 +122,8 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Mascotas</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="{% url "lista-mascota" %}" class="dropdown-item">Mascotas</a>
-                            <a href="{% url "ficha-mascotas" %}" class="dropdown-item">Cargar Mascota rescatada</a>
-                            <a href="{% url "ficha-busqueda-mascota" %}" class="dropdown-item">Buscar Mascota</a>
+                            <a href="{% url "ficha-mascotas" %}" class="dropdown-item">Cargar Mascota</a>
+                           
                         </div>
                     </div>
          
@@ -133,13 +133,13 @@
                             <a href="{% url "lista-refugio" %}" class="dropdown-item">Refugios</a>
                             <a href="{% url "ficha-refugio" %}" class="dropdown-item">Cargar Refugio</a>
                             <a href="{% url "crear-profile-refugio" %}" class="dropdown-item">Cargar Perfil Refugio</a>
-                            <a href="{% url "ficha-busqueda-refugio" %}" class="dropdown-item">Buscar Refugio</a>
+  
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Veterinaria</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="{% url "ficha-veterinaria" %}" class="dropdown-item">Cargar Ficha Veterinaria</a>
+                            <a href="#" class="dropdown-item">Cargar Ficha Veterinaria</a>
                             <a href="{% url "ficha-busqueda"%}" class="dropdown-item">Buscar Ficha Veterinaria</a>
                         </div>
                     </div>
@@ -551,7 +551,7 @@
                             <a class="text-white mb-2" href="{% url "index" %}"><i class="fa fa-angle-right mr-2"></i>Inicio</a>
                             <a class="text-white mb-2" href= "{% url "sobre-nosotros" %}" ><i class="fa fa-angle-right mr-2"></i>Sobre nosotros</a>
                             <a class="text-white mb-2" href= "{% url "sobre-nosotros" %}" ><i class="fa fa-angle-right mr-2"></i>Nuestro equipo</a>
-                            <p class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contáctanos</p>
+                            <a class="text-white" href="{% url "news-letter" %}"><i class="fa fa-angle-right mr-2"></i>Contáctanos</a>
                         </div>
                     </div>
                    

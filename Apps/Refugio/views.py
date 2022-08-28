@@ -6,25 +6,45 @@ from django.template import loader
 from .models import Refugio,  Perfil_Refugio
 from .forms import Refugio_form, Perfil_Refugio_Form
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
+from django.views.generic.edit import UpdateView
+
+
+
 
 def Ficha_refugio (request):
+
     if request.method == "POST":
-        miFormulario = Refugio_form(request.POST,request.FILES)
-        if miFormulario.is_valid():
-            data = miFormulario.cleaned_data
-            ficha = Refugio(nombre = data["nombre"], telefono = data["telefono"], email= data["email"], domicilio= data["domicilio"], logo= data["logo"])
-            ficha.save()
-            return render (request, "inicio.html" , context ={})
+
+        form = Refugio_form(request.POST, request.FILES)
+
+        if form.is_valid():
+
+            # data = form.cleaned_data
+            # ficha = Refugio(nombre = data["nombre"], telefono = data["telefono"], email= data["email"], domicilio= data["domicilio"], logo= data["logo"],)
+            # ficha = ficha.save()
+
+            Refugio.objects.create (
+
+                nombre= form.cleaned_data['nombre'],
+                telefono = form.cleaned_data['telefono'],
+                email = form.cleaned_data['email'],
+                domicilio = form.cleaned_data['domicilio'],
+                logo = form.cleaned_data['logo'],
+                )
+
+            return redirect ( "lista-refugio")
+
     else:
-        miFormulario = Refugio_form() 
-    return render(request, "Refugio/ficha_refugio.html", {"miFormulario" : miFormulario})
+
+        form = Refugio_form() 
+    return render(request, "Refugio/ficha_refugio.html", {"form" : form})
 
 
-def busqueda_refugio (request):
-    return render (request, "Refugio/ficha_busqueda_refugio.html")
+
 
 
 def buscar_refugio (request):
+
     if request.GET["nombre"]:
         nombre= request.GET["nombre"]
         fichas= Refugio.objects.filter(nombre__icontains = nombre)
@@ -43,6 +63,24 @@ class Detail_Refugio(DetailView):
     model = Refugio
     template_name = 'Refugio/detalle_refugio.html'
 
+
+class Borrar_Refugio(DeleteView):
+
+    model = Refugio
+    template_name= 'Refugio/borrar_refugio.html'
+    success_url = '/Refugio/lista-refugio/'
+
+
+class Editar_Refugio(UpdateView):
+
+    model = Refugio
+    template_name = 'Refugio/editar_refugio.html'
+    fields = ["nombre","telefono","email","domicilio","logo"]
+    success_url = '/Refugio/lista-refugio/'
+
+
+
+
 ###################################################################
 
 
@@ -52,7 +90,8 @@ def create_perfil_refugio(request):
         form = Perfil_Refugio_Form(request.POST, request.FILES)
         if form.is_valid():
             Perfil_Refugio.objects.create (
-                    descripcion= form.cleaned_data['descripcion'],
+
+                    description= form.cleaned_data['description'],
                     image_1 = form.cleaned_data['image_1'],
                     image_2 = form.cleaned_data['image_2'],
                     image_3 = form.cleaned_data['image_3'],
@@ -77,17 +116,17 @@ def edit_perfil_refugio(request,id):
         form = Perfil_Refugio_Form(request.POST,request.FILES)
         if form.is_valid():
             perfil_refugio = Perfil_Refugio.objects.get(id=id)
-            perfil_refugio.descripcion = form.cleaned_data['descripcion']
+            perfil_refugio.descripcion = form.cleaned_data['description']
             perfil_refugio.image_1 = form.cleaned_data['image_1']
             perfil_refugio.image_2 = form.cleaned_data['image_2']
             perfil_refugio.image_3 = form.cleaned_data['image_3']
             perfil_refugio.image_4 = form.cleaned_data['image_4']
             perfil_refugio.save()
-            return redirect('perfil-refugio')
+            return redirect('lista-refugio')
     else:
         perfil_refugio = Perfil_Refugio.objects.get(id=id)
         form = Perfil_Refugio_Form(initial={
-                                            "descripcion": perfil_refugio.descripcion,
+                                            "description": perfil_refugio.description,
                                             "image_1":  perfil_refugio.image_1,
                                             "image_2":  perfil_refugio.image_2,
                                             "image_3":  perfil_refugio.image_3,
@@ -96,25 +135,38 @@ def edit_perfil_refugio(request,id):
         return render (request,'Refugio/edit_perfil_refugio.html',context)
 
 
-@login_required
-def eliminar_perfil_refugio(request,id):
-    if request.method == 'GET':
-        mensaje = 'Esta por borrar el perfil'
-        perfil_refugio = Perfil_Refugio.objects.get(id=id)
-        form = Perfil_Refugio_Form(initial={
-                                            "descripcion": perfil_refugio.descripcion,
-                                            "image_1":  perfil_refugio.image_1,
-                                            "image_2":  perfil_refugio.image_2,
-                                            "image_3":  perfil_refugio.image_3,
-                                            "image_4":  perfil_refugio.image_4,} )    
-        return render (request,'Refugio/del_perfil_refugio.html',{'form':form,'mensaje':mensaje})
-    else:
-        form = Perfil_Refugio.objects.get(id=id)
-        form.delete()
-        return redirect('index')
+# @login_required
+# def eliminar_perfil_refugio(request,id):
+#     if request.method == 'GET':
+#         mensaje = 'Esta por borrar el perfil'
+#         perfil_refugio = Perfil_Refugio.objects.get(id=id)
+#         form = Perfil_Refugio_Form(initial={
+#                                             "descripcion": perfil_refugio.description,
+#                                             "image_1":  perfil_refugio.image_1,
+#                                             "image_2":  perfil_refugio.image_2,
+#                                             "image_3":  perfil_refugio.image_3,
+#                                             "image_4":  perfil_refugio.image_4,} )    
+#         return render (request,'Refugio/del_perfil_refugio.html',{'form':form,'mensaje':mensaje})
+#     else:
+#         form = Perfil_Refugio.objects.get(id=id)
+#         form.delete()
+#         return redirect('index')
 
 
 
 
         
+class Borrar_Refugio_Perfil(DeleteView):
+
+    model = Perfil_Refugio
+    template_name= 'Refugio/del_perfil_refugio.html'
+    success_url = '/Refugio/lista-refugio/'
+
+
+class Editar_Refugio_Perfil(UpdateView):
+
+    model = Perfil_Refugio
+    template_name = 'Refugio/edit_perfil_refugio.html'
+    fields = ["description","image_1","image_2","image_3","image_4"]
+    success_url = '/Refugio/lista-refugio/'
 

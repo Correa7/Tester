@@ -21,7 +21,7 @@ class Mascota_form (forms.Form):
 
     class Meta:
         model = Mascota
-        fields = (
+        # fields = (
             # 'nickname',
             # 'especie',
             # 'raza',
@@ -30,4 +30,4 @@ class Mascota_form (forms.Form):
             # "ingreso",
             # "observaciones",
             # "image",
-               )
+            #    )

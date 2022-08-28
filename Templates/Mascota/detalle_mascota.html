@@ -31,13 +31,34 @@ Listado de mascotas - Salvando Patitas
                         <p> Observaciones: {{mascota.observaciones}}</p>
    
                     </table>
+
+
+                    {% if request.user.is_staff %} 
+                    
+                        <div>
+                            <a align="rigth" href="{% url "editar-mascota" mascota.id %}" class="btn  btn-secondary mt-3 mt-md-2 px-2">Editar</a>
+    
+                            <a align="rigth" href="{% url "borrar-mascota" mascota.id %}" class="btn  btn-primary mt-3 mt-md-2 px-2">Borrar</a>
+                           
+                        </div>
+
+                    {% endif %}
+                    
+
+
+
+
+
+
+
+
                     </div>
                 </div>
 
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
                         <h3 class="flaticon-food display-3 font-weight-normal text-secondary mb-3"></h3>
-                        <h3 class="mb-3">Ficha Veterinaria</h3><br>        
+                        <h3 class="mb-3">Veterinaria</h3><br>        
                         <table>
                             <p> Registro: {{mascota.veterinaria.registro}}</p>
                             <p> Vacuna: {{mascota.veterinaria.vacuna_1}}</p>
@@ -47,8 +68,24 @@ Listado de mascotas - Salvando Patitas
                             <p> Observaciones : {{mascota.veterinaria.observaciones }}</p>
                            
                         </table>
+                        {% if not mascota.veterinaria %}
+
+                        <a href="{% url "ficha-veterinaria" mascota.id %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Cargar ficha veterinaria</a>
+                        
+                        {% else %}
+
+                            <div>
+                                <a align="rigth" href="{% url "editar-vacuna" mascota.veterinaria.id %}" class="btn  btn-secondary mt-3 mt-md-2 px-2">Editar</a>
+        
+                                <a align="rigth" href="{% url "borrar-vacuna" mascota.veterinaria.id %}" class="btn  btn-primary mt-3 mt-md-2 px-2">Borrar</a>
+                            
+                            </div>
+
+
+                        {% endif %}
                        
                     </div>
+                   
                 </div>
 
                 <div class="col-md-6 col-lg-4 mb-4">

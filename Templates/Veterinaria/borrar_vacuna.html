@@ -1,0 +1,31 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    Borrar mascota 
+{% endblock %}
+
+{% block contenidoQueCambia%}
+<div style="padding: 20px 40px;">
+
+    <h1>Borrar mascota</h1>
+    <form  method="POST" style="padding: 20px 80px;border-color: BLACK;border-width: 5px;border-style: solid;">
+        {% csrf_token %}
+
+      <br><br>
+
+        <div class="alert alert-danger" role="alert">
+            <h3> Estas por eliminar la ficha medica numero:  {{ ficha_medica.registro }} ,   ¿Estas seguro/a? </h3>
+          </div>
+          <br>
+
+         
+         
+          <input class="btn btn-danger" type="submit" value="Eliminar", width="20px">
+        
+        <br><br>
+
+    </form>
+</div>
+{% endblock %}

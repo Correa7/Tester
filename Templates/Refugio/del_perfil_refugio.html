@@ -1,47 +1,31 @@
-{% extends 'padre.html' %}
+{% extends "padre.html" %}
+
+{% load static %}
 
 {% block titulo %}
-Eliminar refugio - Salvando Patitas
-{% endblock titulo %}
+    Borrar mascota 
+{% endblock %}
 
-{% block contenidoQueCambia %}
+{% block contenidoQueCambia%}
+<div style="padding: 20px 40px;">
 
-<div class="container-fluid bg-light pt-20">
+    <h1>Eliminar Perfil de refugio</h1>
+    <form  method="POST" style="padding: 20px 80px;border-color: BLACK;border-width: 5px;border-style: solid;">
+        {% csrf_token %}
 
-  <div class="container py-5">
-      <div class="d-flex flex-column text-center mb-5">
-          <h2 class="text-secondary mb-3">Salvando patitas ;)</h2><br>
-          <div class="alert alert-danger" role="alert">
-            {{mensaje}}
+      <br><br>    
+
+        <div class="alert alert-danger" role="alert">
+            <h3> Estas por eliminar el perfil del refugio,   ¿Estas seguro/a? </h3>
           </div>
-      </div>
+          <br>
 
-      <div class="row pb-3">
+         
+         
+          <input class="btn btn-danger" type="submit" value="Eliminar", width="20px">
+        
+        <br><br>
 
-          <div class="col-md-6 col-lg-8 mb-4">
-              <div class=" flex-column  bg-white mb-20 p-3 p-sm-20">
-                  <h3 class="flaticon-food display-3 font-weight-normal text-secondary mb-3"></h3>
-                  <h3 class="mb-3"></h3>         
-
-
-                  <form method="POST" enctype="multipart/form-data" >
-                        {% csrf_token %}
-                        
-                        <table>
-                            {{form.as_table}}
-                        </table><br>
-
-                        <input class="btn btn-danger" type="submit" value="Eliminar", width="20px">
-                    </form>
-                  
-              </div>
-          </div>
-
-      </div>
-       
-  </div>
-
-</div> 
-
-
+    </form>
+</div>
 {% endblock %}

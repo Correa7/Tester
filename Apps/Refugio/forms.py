@@ -1,29 +1,21 @@
 from contextlib import nullcontext
 from django import forms
 from django.forms import ModelForm
-from .models import Perfil_Refugio
+from .models import Perfil_Refugio, Refugio
 
 class Refugio_form (forms.Form):
+    
     nombre = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Ingrese el Nombre'}))
     telefono = forms.IntegerField(widget=forms.TextInput(attrs={'placeholder':'Ingrese número entero'}))
     email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder':'Ingrese E-mail'}))
     domicilio = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Ingrese la Direccion'}))
-    logo = forms.ImageField(required=False)
+    logo = forms.ImageField(label='Imagen  ')
 
+    class Meta:
+        model = Refugio
+        fields = ['nombre','telefono','email','domicilio','logo']
+        help_texts = {k:'' for k in fields}
 ##############################################################
-
-# class UserEditPerfilForm(UserChangeForm):
-#     username= forms.CharField(label='Usuario  ',required=True)
-#     password=forms.CharField(
-#         help_text="",
-#         widget=forms.HiddenInput(),
-#         required=False,
-#       )
-
-#     class Meta:
-#         model = User_profile
-#         fields = ['first_name','last_name','phone','direccion','description']
-#         help_texts = {k:'' for k in fields}
 
         
 class Perfil_Refugio_Form(forms.Form):

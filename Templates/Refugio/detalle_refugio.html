@@ -30,6 +30,16 @@ Detalle refugios - Salvando Patitas
                         <br>
                        
                     </table>
+                        {% if request.user.is_staff %} 
+                        
+                        <div>
+                            <a align="rigth" href="{% url "editar-refugio" refugio.id %}" class="btn  btn-secondary mt-3 mt-md-2 px-2">Editar</a>
+
+                            <a align="rigth" href="{% url "borrar-refugio" refugio.id %}" class="btn  btn-primary mt-3 mt-md-2 px-2">Borrar</a>
+                        
+                        </div>
+
+                        {% endif %}
                     </div>
                 </div>
 
@@ -42,6 +52,7 @@ Detalle refugios - Salvando Patitas
 
                         
                         {% if request.user.is_authenticated %}
+
                     <a href="{% url "voluntario" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Se un Voluntario</a>
                     {% else %}
                     <a href="{% url "requerimiento" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Se un Voluntario</a>
@@ -61,9 +72,12 @@ Detalle refugios - Salvando Patitas
    
 <div align="center">
     {% if refugio.RefugioProf %}
-<a href="{% url "edit-profile-refugio" refugio.RefugioProf.id %}" class="btn  btn-secondary mt-1 mt-md-2 px-2" align="center">editar perfil</a>
-<a href="{% url "eliminar-profile-refugio" refugio.RefugioProf.id %}" class="btn  btn-secondary mt-1 mt-md-2 px-2" align="center">eliminar perfil</a>
+    <a href="{% url "editar-refugio-perfil" refugio.RefugioProf.id %}" class="btn  btn-secondary mt-1 mt-md-2 px-2" align="center">editar perfil</a>
+    <a href="{% url "borrar-refugio-perfil" refugio.RefugioProf.id %}" class="btn  btn-secondary mt-1 mt-md-2 px-2" align="center">eliminar perfil</a>
+    {% else %}
+    <a href="{% url "crear-profile-refugio" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2" align="center">Crear perfil</a>
     {%endif%}
+
 </div>
 {%endif%}
 <br>

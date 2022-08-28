@@ -8,39 +8,58 @@
 
 {% block contenidoQueCambia%}
 
-<div style="padding: 20px 40px;">
-    <h1>Resultados de búsqueda</h1>
-    <div style="padding: 20px 80px;border-color: BLACK;border-width: 5px;border-style: solid;">
 
-        <p>Se muestran los resultados para : {{nickname}} </p>
-
+<div class="container-fluid bg-light pt-5">
+    <div class="container py-5">
+        <div class="d-flex flex-column text-center mb-5">
+            <h4 class="text-secondary mb-3">Nuestra labor</h4>
+            <h1 class="display-4 m-0"><span class="text-primary">Mascotas</span> encontradas!</h1>
+        </div>
+        <div class="row pb-3">
         {% if fichas %}
 
-        <ul>
 
-            {%for ficha in fichas %}
+            {% for ficha in fichas %}
 
-            <li> N° de ficha: N° {{ficha.id}}</li> 
-            <li> Nombre: {{ficha.nickname}} </li>
-            <li> Especie: {{ficha.especie}} </li>
-            <li> Raza: {{ficha.raza}} </li>
-            <li> Sexo: {{ficha.sexo}} </li>
-            <li> Edad aproximada: {{ficha.edad_aprox}} </li>
-            <li> Fecha de ingreso: {{ficha.ingreso}} </li>
-            <li> Observaciones: {{ficha.observaciones}} </li>
-            <br>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                    
+                    <h3 class="mb-3">{{ficha.nickname}}</h3><br>
+                    <img src="{{ficha.image.url}}", style="border-radius: 50%; align-items: center;" width="180px" height="180px
+                    "><br>
+                    
+                    
+                    
+                    <li> Sexo: {{ficha.sexo}} </li>
+                    <li> Años de Edad: {{ficha.edad_aprox}} </li>
+                 
+                    <br>
+                
+                    <br>
 
-            {% endfor %}
+                    <a href="{% url "detalle-mascota" ficha.id %}"  class="btn btn-primary">Detalle</a>
+                    <br>
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url "adopcion" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Adoptame</a>
+    
+                    {% else %}
+                    <a href="{% url "requerimiento" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Adoptame</a>
+                    {% endif%}
+                </div>
+            </div>
 
-        </ul>
-
+            {% endfor%}
         {% else %}
 
-        <p>No se encontro la Ficha</p>
+            <h2>No se encontro la Ficha</h2>
+    
+        {% endif %}   
 
-        {% endif %}
+        </div>
     </div>
-
 </div>
+
+
+
 
 {% endblock %}

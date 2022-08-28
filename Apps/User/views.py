@@ -89,7 +89,7 @@ def edit_user(request,id):
 def del_user(request,id):
     profile = User.objects.get(id=id)
     if request.method == 'GET':
-        mensaje = 'Esta por borrar el perfil'
+        mensaje = 'Esta por eliminar sus datos de usuario'
         form = User_registration_form(initial={
             "username": profile.username,
             "email": profile.email
@@ -117,7 +117,7 @@ def create_perfil(request):
                     direccion = form.cleaned_data['direccion'],
                     description= form.cleaned_data['description'],
                     image = form.cleaned_data['image']
-                )
+                )   
             return redirect ("perfil")
         else:
             return render (request, "User/respuesta.html", {"context":f"los cambios no se han realizado"})
@@ -158,7 +158,7 @@ def edit_perfil(request,id):
 def eliminar_perfil(request,id):
     profile = get_object_or_404(User_profile,user=request.user)
     if request.method == 'GET':
-        mensaje = 'Esta por borrar el perfil'
+        mensaje = 'Esta por borrar sus datos de perfil'
         form = User_profile_Form(instance=profile)
         context = {'form':form,'mensaje':mensaje}
         return render (request,'User/del_profile.html',context)

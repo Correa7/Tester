@@ -13,4 +13,4 @@ class Ficha_medica (models.Model):
     def __str__(self) -> str:
         return f" {self.registro} - {self.vacuna_1} - {self.vacuna_2} - {self.desparasitacion} - {self.castracion} - {self.observaciones}" + ' - veterinaria'
 
-  
+   

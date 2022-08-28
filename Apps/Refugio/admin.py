@@ -8,6 +8,6 @@ admin.site.register(Refugio, Refugio_admin)
 
 
 class Perfil_Refugio_admin(admin.ModelAdmin):
-    list_display = ["description","image_1","image_2","image_3","image_4",]
+    list_display = ["id","image_1","image_2"]
 
 admin.site.register(Perfil_Refugio, Perfil_Refugio_admin)   

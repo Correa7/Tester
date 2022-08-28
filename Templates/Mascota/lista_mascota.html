@@ -7,6 +7,20 @@ Listado de mascotas - Salvando Patitas
 {% block contenidoQueCambia%}
 
 
+<br>
+<div>
+    <div style="text-align: right";>
+        <form action="{% url "buscar-mascota" %}" method="GET"> {% csrf_token %}
+
+            
+            <input aling="right" type ="text" name="nickname" id="nickname" placeholder="Nick de la mascota">
+        
+            <input type="submit"  value="Buscar" aling="right">
+            
+        
+        </form>
+    </div>   
+</div>
 
 <div class="container-fluid bg-light pt-5">
     <div class="container py-5">
@@ -35,6 +49,7 @@ Listado de mascotas - Salvando Patitas
                     <br>
                     {% if request.user.is_authenticated %}
                     <a href="{% url "adopcion" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Adoptame</a>
+    
                     {% else %}
                     <a href="{% url "requerimiento" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Adoptame</a>
                     {% endif%}
