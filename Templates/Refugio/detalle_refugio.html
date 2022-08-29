@@ -75,7 +75,7 @@ Detalle refugios - Salvando Patitas
     <a href="{% url "editar-refugio-perfil" refugio.RefugioProf.id %}" class="btn  btn-secondary mt-1 mt-md-2 px-2" align="center">editar perfil</a>
     <a href="{% url "borrar-refugio-perfil" refugio.RefugioProf.id %}" class="btn  btn-secondary mt-1 mt-md-2 px-2" align="center">eliminar perfil</a>
     {% else %}
-    <a href="{% url "crear-profile-refugio" %}" class="btn  btn-secondary mt-1 mt-md-2 px-2" align="center">Crear perfil</a>
+    <a href="{% url "crear-profile-refugio" refugio.id %}" class="btn  btn-secondary mt-1 mt-md-2 px-2" align="center">Crear perfil</a>
     {%endif%}
 
 </div>

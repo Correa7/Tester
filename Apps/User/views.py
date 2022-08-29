@@ -135,7 +135,7 @@ def show_perfil (request):
             request.user.profile.phone,
             request.user.profile.direccion,
             request.user.profile.description,
-            request.user.profile.image
+            request.user.profile.image 
         )
     return render(request, 'User/profile.html', {"usuario":usuario})
 

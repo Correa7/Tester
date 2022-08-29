@@ -18,14 +18,25 @@ def Ficha_veterinaria (request, pk):
 
     if request.method == "POST":
 
-    
-
         form = Ficha_form(request.POST)
+
         if form.is_valid():
+
+            # data = form.cleaned_data
+
+            # ficha = Ficha_medica(
+                                
+            #                     registro=data["registro"],
+            #                     vacuna_1=data["vacuna_1"],
+            #                     vacuna_2=data["vacuna_2"],
+            #                     desparasitacion=data["desparasitacion"],
+            #                     castracion=data["castracion"],
+            #                     observaciones=["observaciones"],
+            #                  )
 
             Ficha_medica.objects.create( 
 
-                
+                mascota= Mascota.objects.get(id=pk),
                 registro = form.cleaned_data['registro'],
                 vacuna_1 = form.cleaned_data['vacuna_1'],
                 vacuna_2 = form.cleaned_data['vacuna_2'],
@@ -34,13 +45,13 @@ def Ficha_veterinaria (request, pk):
                 observaciones = form.cleaned_data['observaciones'],
                
             )
-            
-            
+
+
             return redirect ( "lista-mascota")
     else:
 
-        miFormulario = Ficha_form()    
-    return render(request, "Veterinaria/ficha_veterinaria.html", {"miFormulario" : miFormulario})
+        form = Ficha_form()    
+    return render(request, "Veterinaria/ficha_veterinaria.html", {"form" : form})
 
 
 def busqueda_Vacuna (request):

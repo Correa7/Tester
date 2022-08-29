@@ -68,19 +68,23 @@ Listado de mascotas - Salvando Patitas
                             <p> Observaciones : {{mascota.veterinaria.observaciones }}</p>
                            
                         </table>
-                        {% if not mascota.veterinaria %}
 
-                        <a href="{% url "ficha-veterinaria" mascota.id %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Cargar ficha veterinaria</a>
-                        
-                        {% else %}
+                        {% if request.user.is_staff %} 
+                                {% if not mascota.veterinaria %}
 
-                            <div>
-                                <a align="rigth" href="{% url "editar-vacuna" mascota.veterinaria.id %}" class="btn  btn-secondary mt-3 mt-md-2 px-2">Editar</a>
-        
-                                <a align="rigth" href="{% url "borrar-vacuna" mascota.veterinaria.id %}" class="btn  btn-primary mt-3 mt-md-2 px-2">Borrar</a>
-                            
-                            </div>
+                                <a href="{% url "ficha-veterinaria" mascota.id %}" class="btn  btn-secondary mt-1 mt-md-2 px-2">Cargar ficha veterinaria</a>
+                                
+                                {% else %}
 
+                                    <div>
+                                        <a align="rigth" href="{% url "editar-vacuna" mascota.veterinaria.id %}" class="btn  btn-secondary mt-3 mt-md-2 px-2">Editar</a>
+                
+                                        <a align="rigth" href="{% url "borrar-vacuna" mascota.veterinaria.id %}" class="btn  btn-primary mt-3 mt-md-2 px-2">Borrar</a>
+                                    
+                                    </div>
+
+
+                                {% endif %}
 
                         {% endif %}
                        
