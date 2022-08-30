@@ -1,1 +1,0 @@
-web gunicorn MVT.wsgi --log-file -

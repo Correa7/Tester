@@ -25,6 +25,4 @@ urlpatterns = [
     path("User/", include("Apps.User.urls")),
     path("SendMail/", include("Apps.SendMail.urls")),
     path("Legales/",include("Apps.Legales.urls")),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
