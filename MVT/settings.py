@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+qxk$(q_j*x_z89xjnt!td&79qxbo0ebe%uhh2h+(4^5r$m5fb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -44,6 +44,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "Whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'MVT.urls'
@@ -116,6 +117,13 @@ STATIC_URL = 'Templates/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR/"Templates/static",]
+
+STATIC_ROOT= os.path.join(BASE_DIR, "staticfiles")
+STATIC_TMP=  os.path.join(BASE_DIR, "static")
+os.makedirs(STATIC_TMP, exist_ok=True)
+os.makedirs(STATIC_ROOT, exist_ok=True)
+
+STATICFILES_STORAGE= "whitenoise.storage.compressedManifestStaticFilesStorage"
 
 
 MEDIA_URL = "/Media/"
