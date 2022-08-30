@@ -115,16 +115,15 @@ USE_TZ = True
 
 STATIC_URL = 'Templates/static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR/"Templates/static",]
+# STATICFILES_DIRS = [
+#     BASE_DIR/"Templates/static",]
 
-STATIC_ROOT= os.path.join(BASE_DIR, "staticfiles")
-STATIC_TMP=  os.path.join(BASE_DIR, "static")
-os.makedirs(STATIC_TMP, exist_ok=True)
-os.makedirs(STATIC_ROOT, exist_ok=True)
 
-STATICFILES_STORAGE= "whitenoise.storage.compressedManifestStaticFilesStorage"
-
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+STATICFILES_DIRS = (  os.path.join(BASE_DIR, 'static'),)
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_URL = "/Media/"
 
@@ -140,3 +139,5 @@ EMAIL_USE_TLS= True
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
